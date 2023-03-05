@@ -66,7 +66,9 @@ include("db_connection.php");
 							<td> ".$result['address']."</td>
 							<td> ".$result['city']."</td>
 							<td> 
-								<a href = 'delete.php?deleteid=".$result['CustomerID']."'> Delete </a>
+								
+								<a href = 'delete.php?deleteid=".$result['CustomerID']."' class = 'btn btn-danger'> Delete </a>
+
 								<a href = 'update.php?updateid='".$result['CustomerID']."' class='btn btn-primary'> Update </a>
 							</td>
 						</tr>
