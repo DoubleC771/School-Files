@@ -1,6 +1,18 @@
-<?php 
-    $conn = mysqli_connect("localhost", "root", "", "logintest");
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    }
+<?php
+function OpenCon()
+ {
+ $dbhost = "localhost";
+ $dbuser = "root";
+ $dbpass = "";
+ $db = "logintest";
+ $conn = new mysqli($dbhost, $dbuser, $dbpass,$db) or die("Connect failed: %s\n". $conn -> error);
+ 
+ return $conn;
+ }
+ 
+function CloseCon($conn)
+ {
+ $conn -> close();
+ }
+   
 ?>
