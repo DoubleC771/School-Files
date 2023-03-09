@@ -52,6 +52,8 @@ include("db_connection.php");
                     <th scope="col"> Last Name </th>
                     <th scope="col"> Address </th>
                     <th scope="col"> City </th>
+					<th scope="col"> Username </th>
+					<th scope="col"> Password </th>
 					<th scope="col"> Action </th>
                 </tr>
 				<?php 
@@ -65,11 +67,13 @@ include("db_connection.php");
 							<td> ".$result['lastname']."</td>
 							<td> ".$result['address']."</td>
 							<td> ".$result['city']."</td>
+							<td> ".$result['username']."</td>
+							<td> ".$result['password']."</td>
 							<td> 
 								
 								<a href = 'delete.php?deleteid=".$result['CustomerID']."' class = 'btn btn-danger'> Delete </a>
 
-								<a href = 'update.php?updateid='".$result['CustomerID']."' class='btn btn-primary'> Update </a>
+								<a href = 'update.php?updateid=".$result['CustomerID']."' class='btn btn-primary'> Update </a>
 							</td>
 						</tr>
 							";

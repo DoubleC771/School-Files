@@ -1,16 +1,14 @@
 <?php
 include("db_connection.php");
-
-$id = $_GET['updateid'];
-
-if(isset($_POST['submit'])) {
+	if(isset($_POST['submit'])) {
+		
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		$address = $_POST['address'];
 		$city = $_POST['city'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-		$sql = "UPDATE `logintable` SET `CustomerID`='$id',`firstname`='$firstname',`lastname`='$lastname',`address`='$address',`city`='$city',`username`='$username',`password`='$password' WHERE `CustomerID` = '$id'";
+		$sql = "INSERT INTO loginTable (firstname, lastname, address, city) VALUES ('$firstname', '$lastname', '$address', '$city')";
+		$result = mysqli_query($conn, $sql);
+
 		if (mysqli_query($conn, $sql)) {
 			echo "";
 		} else {
@@ -32,9 +30,9 @@ if(isset($_POST['submit'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
-	<form method="post" action="">
+    <form method="post" action="">
     <div class = "form-container" id = "table-container">
-    <h1>Create Profile</h1>
+    <h1>Sign up</h1>
     <div class="form-row">
     <div class="col">
     <label for="FirstName">First Name</label>
@@ -64,8 +62,9 @@ if(isset($_POST['submit'])) {
     <thead>
   <tr>
 		<td> 
-      <a href = 'display.php?' class='btn btn-success'> Back </a>	
+      <a href = "display.php?">      
       <input type="submit" name="submit" value="Submit" class = "btn btn-primary">
+        </a>
       </div>		
 		</td>
 	</tr> 
@@ -73,4 +72,4 @@ if(isset($_POST['submit'])) {
   <table>
 </form>
 </body>
-</html>
+</html> 

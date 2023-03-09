@@ -30,7 +30,7 @@ USE `logintest`;
 --
 
 CREATE TABLE `logintable` (
-  `CustomerID` int(11) NOT NULL,
+  `CustomerID` int(11) NOT NULL AUTO_INCREMENT,
   `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
@@ -55,7 +55,7 @@ ALTER TABLE `logintable`
 -- AUTO_INCREMENT for table `logintable`
 --
 ALTER TABLE `logintable`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1;
 --
 -- Database: `phpmyadmin`
 --

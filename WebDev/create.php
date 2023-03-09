@@ -48,6 +48,14 @@ if(isset($_POST['submit'])) {
     <label for="inputAddress2">City</label>
     <input type="text" class="form-control" name="city" placeholder="Bacolod City">
   </div>
+  <div class="form-group">
+    <label for="inputAddress2">Username</label>
+    <input type="text" class="form-control" name="username" placeholder="deeznuts">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Password</label>
+    <input type="password" class="form-control" name="password" placeholder="ilovetrains101">
+  </div>
   <table>
     <thead>
   <tr>
