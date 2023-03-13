@@ -1,3 +1,30 @@
+<?php 
+$is_invalid = false;
+include("db_connection.php");
+   if ($_SERVER["REQUEST_METHOD"] === "POST") {
+      $sql = sprintf("SELECT * FROM logintable WHERE username = '%s'", 
+      $conn -> real_escape_string($_POST['username']));
+
+      $result = $conn->query($sql);
+
+      $user = $result->fetch_assoc();
+
+      if ($user) {
+         if ($_POST['password'] === $user['password']) {
+            session_start();
+            $_SESSION['user_id'] = $user['id'];
+            header("location: index.php");
+            exit;
+      } else {
+         
+      }
+   } else {
+      
+   }
+   $is_invalid = true;
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,13 +36,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
-    <form method="POST" action="">
+    <form method="POST">
     <div class = "form-container" id = "table-container">
-        
+
+    <?php 
+         if ($is_invalid):
+      ?>
+      <em style = "color:red">Invalid Login</em>
+      <?php endif; ?>
+
     <div class="form-group">
     <label for="exampleInputEmail1">Username</label>
-    <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter username" name = "username">
-    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter username" name = "username" value = "<?= htmlspecialchars($_POST['username'] ?? "")?>">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your username with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="password">Password</label>
@@ -29,50 +62,3 @@
 </form>
 </body>
 </html>
-
-<?php
-  // Start a session
-  session_start();
-
-  // Check if the form has been submitted
-  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get the username and password from the form
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // Connect to the database
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "logintest";
-    $conn = new mysqli($servername, "root", "", $dbname);
-
-    // Check for database connection errors
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
-
-    // Prepare a SQL statement to retrieve the user's information from the database
-    $stmt = $conn->prepare("SELECT password FROM logintable WHERE username = ?");
-    $stmt->bind_param("s", $username);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    // Check if the user exists in the database
-    if ($result->num_rows === 1) {
-      $row = $result->fetch_assoc();
-
-      
-      // Validate the username and password
-if ($row && password_verify($password, $row['password'])) {
-   echo "Username and password are correct!";
-} else {
-   echo "Username and/or password are incorrect!";
-}
-
-// Close the database connection
-$conn->close();
-
-  }
-}
-?>

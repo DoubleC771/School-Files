@@ -20,7 +20,8 @@ include("db_connection.php");
 		$servername = "localhost";
 
     if ($result) {
-      header('location:index.html');
+      header('location:signup-success.html');
+      exit();
   } else {
       die (mysqli_error($conn));
   }
