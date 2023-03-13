@@ -19,7 +19,11 @@ include("db_connection.php");
 		mysqli_close($conn);
 		$servername = "localhost";
 
-
+    if ($result) {
+      header('location:index.html');
+  } else {
+      die (mysqli_error($conn));
+  }
 
 	}
 ?>
@@ -66,10 +70,8 @@ include("db_connection.php");
   <table>
     <thead>
   <tr>
-		<td> 
-            
+		<td>  
       <input type="submit" name="submit" value="Submit" class = "btn btn-primary">
-        
       </div>		
 		</td>
 	</tr> 

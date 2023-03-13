@@ -1,34 +1,3 @@
-<?php
-include("db_connection.php");
-	if(isset($_POST['submit'])) {
-		
-		$firstname = $_POST['firstname'];
-		$lastname = $_POST['lastname'];
-		$address = $_POST['address'];
-		$city = $_POST['city'];
-		$username = $_POST['username'];
-		$password = $_POST['password'];
-		$sql = "INSERT INTO loginTable (firstname, lastname, address, city, username, password) VALUES ('$firstname', '$lastname', '$address', '$city', '$username', '$password')";
-		$result = mysqli_query($conn, $sql);
-
-		if (mysqli_query($conn, $sql)) {
-			echo "";
-		} else {
-			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
-		}
-		mysqli_close($conn);
-		$servername = "localhost";
-	}
-
-	$select = "select * from logintable";
-	$query = mysqli_query($conn, $select);
-	if (isset($_GET['CustomerID'])) {
-		$customerid = $_GET['CustomerID'];
-		$delete = mysqli_query($conn, "DELETE FROM `logintable` WHERE `CustomerID`='$customerid'");
-
-	}
-?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,54 +9,70 @@ include("db_connection.php");
     <link rel="preconnect" href="https://fonts.googleapis.com">
 </head>
 <body>
-    <form method="post" action="">
+    <form method="POST" action="">
     <div class = "form-container" id = "table-container">
         
     <div class="form-group">
-    <label for="exampleInputEmail1">Email address</label>
-    <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter username">
+    <label for="exampleInputEmail1">Username</label>
+    <input type="text" class="form-control" id="username" aria-describedby="emailHelp" placeholder="Enter username" name = "username">
     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="Password">
+    <input type="password" class="form-control" id="password" placeholder="Password" name = "password">
   </div>
   <div class="form-check">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-  
-  <?php
-   include("db_connection.php");
-   
-   if($_SERVER["REQUEST_METHOD"] == "POST") {
-      // username and password sent from form 
-      
-      $myusername = mysqli_real_escape_string($db,$_POST['username']);
-      $mypassword = mysqli_real_escape_string($db,$_POST['password']); 
-      
-      $sql = "SELECT id FROM admin WHERE username = '$myusername' and passcode = '$mypassword'";
-      $result = mysqli_query($db,$sql);
-      $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
-      $active = $row['active'];
-      
-      $count = mysqli_num_rows($result);
-      
-      // If result matched $myusername and $mypassword, table row must be 1 row
-		
-      if($count == 1) {
-         session_register("myusername");
-         $_SESSION['login_user'] = $myusername;
-         
-         header("location: display.php");
-      }else {
-         $error = "Your Login Name or Password is invalid";
-      }
-   }
-?>
-
-
 </div> 
 </div>
 </form>
 </body>
-</html> 
+</html>
+
+<?php
+  // Start a session
+  session_start();
+
+  // Check if the form has been submitted
+  if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Get the username and password from the form
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    // Connect to the database
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "logintest";
+    $conn = new mysqli($servername, "root", "", $dbname);
+
+    // Check for database connection errors
+    if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Prepare a SQL statement to retrieve the user's information from the database
+    $stmt = $conn->prepare("SELECT password FROM logintable WHERE username = ?");
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $result = $stmt->get_result();
+
+    // Check if the user exists in the database
+    if ($result->num_rows === 1) {
+      $row = $result->fetch_assoc();
+
+      
+      // Validate the username and password
+if ($row && password_verify($password, $row['password'])) {
+   echo "Username and password are correct!";
+} else {
+   echo "Username and/or password are incorrect!";
+}
+
+// Close the database connection
+$conn->close();
+
+  }
+}
+?>
