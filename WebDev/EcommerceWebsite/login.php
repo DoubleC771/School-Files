@@ -12,15 +12,12 @@ include("db_connection.php");
       if ($user) {
          if ($_POST['password'] === $user['password']) {
             session_start();
-            $_SESSION['user_id'] = $user['id'];
+            session_regenerate_id();
+            $_SESSION["user_id"] = $user["CustomerID"];
             header("location: index.php");
             exit;
-      } else {
-         
-      }
-   } else {
-      
-   }
+      } 
+   } 
    $is_invalid = true;
 }
 ?>
