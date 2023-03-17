@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 17, 2023 at 04:40 PM
+-- Generation Time: Mar 17, 2023 at 04:56 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -29,6 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `inventory` (
   `ProductID` int(11) NOT NULL,
+  `Productname` varchar(50) NOT NULL,
   `CustomerID` int(11) NOT NULL,
   `SellerID` int(11) NOT NULL,
   `address` int(11) NOT NULL,
