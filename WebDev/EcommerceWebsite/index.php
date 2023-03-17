@@ -1,13 +1,9 @@
 <?php
 session_start();
-
 if (isset($_SESSION["user_id"])) {
    include ("db_connection.php");
-
    $sql = "SELECT * FROM `logintable` WHERE CustomerID = {$_SESSION["user_id"]}";
-
    $result = $conn->query($sql);
-
    $user = $result->fetch_assoc();
 }
 

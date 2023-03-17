@@ -1,3 +1,14 @@
+<?php
+session_start();
+if (isset($_SESSION["user_id"])) {
+   include ("db_connection.php");
+   $sql = "SELECT * FROM `logintable` WHERE CustomerID = {$_SESSION["user_id"]}";
+   $result = $conn->query($sql);
+   $user = $result->fetch_assoc();
+}
+?>
+
+<html>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -9,7 +20,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>News</title>
+      <title>Cycle</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -32,14 +43,13 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
    </head>
    <body>
-      <!-- header section start -->
-      <div class="header_section header_bg">
+        <div class="header_section header_bg">
          <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a href="index.html" class="logo"><img src="images/logo.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent" style = "color:black">
                <ul class="navbar-nav mr-auto">
                   <li class="nav-item active">
                      <a class="nav-link" href="index.html">Home</a>
@@ -63,7 +73,18 @@
                <form class="form-inline my-2 my-lg-0">
                   <div class="login_menu">
                      <ul>
-                        <li><a href="#">Login</a></li>
+                        <!-- php goes here -->
+                        <?php if (isset($user)): ?>
+
+                           <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
+                           <li><a href="logout.php">Logout</a></li>
+
+                        <?php else: ?>
+                           <li><a href="login.php">Login</a></li>
+                           <li><a href="signup.php ">Sign Up</a></li>
+
+                        <?php endif; ?>
+
                         <li><a href="#"><img src="images/trolly-icon.png"></a></li>
                         <li><a href="#"><img src="images/search-icon.png"></a></li>
                      </ul>
@@ -136,19 +157,30 @@
          <!-- banner section end -->
       </div>
       <!-- header section end -->
-      <!-- about section start -->
-      <div class="about_section layout_padding">
+      <!-- contact section start -->
+      <div class="contact_section layout_padding">
          <div class="container">
-            <h1 class="about_taital">About Our cycle Store</h1>
-            <p class="about_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters
-            </p>
-            <div class="about_main">
-               <img src="images/img-5.png" class="image_5">
+            <div class="contact_main">
+               <h1 class="request_text">A Call Back</h1>
+               <form action="/action_page.php">
+                  <div class="form-group">
+                     <input type="text" class="email-bt" placeholder="Name" name="Name">
+                  </div>
+                  <div class="form-group">
+                     <input type="text" class="email-bt" placeholder="Email" name="Name">
+                  </div>
+                  <div class="form-group">
+                     <input type="text" class="email-bt" placeholder="Phone Numbar" name="Email">
+                  </div>
+                  <div class="form-group">
+                     <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
+                  </div>
+               </form>
+               <div class="send_btn"><a href="#">SEND</a></div>
             </div>
-            <div class="read_bt_1"><a href="#">Read More</a></div>
          </div>
       </div>
-      <!-- about section end -->
+      <!-- contact section end -->
       <!-- footer section start -->
       <div class="footer_section layout_padding">
          <div class="container-fluid">
