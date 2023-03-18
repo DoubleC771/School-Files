@@ -1141,3 +1141,32 @@ textarea#comment::placeholder {
 }
 
 /* contact section end*/
+.add_cart {
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+}
+
+.add_cart a {
+    width: 180px;
+    float: left;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #f7c17b;
+    padding: 8px 0px;
+}
+
+.add_cart a:hover {
+    color: #000;
+    background-color: #ffffff;
+}
+
+span {
+    color: black;
+
+}
+
+.table-dark {
+    background: #355764 !important; 
+}

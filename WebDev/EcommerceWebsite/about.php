@@ -74,19 +74,25 @@ if (isset($_SESSION["user_id"])) {
                   <div class="login_menu">
                      <ul>
                         <!-- php goes here -->
-                        <?php if (isset($user)): ?>
+                     <?php if (isset($user)): ?>
 
-                           <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
-                           <li><a href="logout.php">Logout</a></li>
+                     <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
+                     <li><a href="logout.php">Logout</a></li>
 
-                        <?php else: ?>
-                           <li><a href="login.php">Login</a></li>
-                           <li><a href="signup.php ">Sign Up</a></li>
+                     <?php else: ?>
+                     <li><a href="login.php">Login</a></li>
+                     <li><a href="signup.php ">Sign Up</a></li>
 
-                        <?php endif; ?>
+                     <?php endif; ?>
 
-                        <li><a href="#"><img src="images/trolly-icon.png"></a></li>
-                        <li><a href="#"><img src="images/search-icon.png"></a></li>
+                     <?php 
+
+                     $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
+                     $cart_count = mysqli_num_rows($select_rows);
+
+                     ?>
+                     <li><a href="shoppingcart.php"><img src="images/trolly-icon-black.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
+                     <li><a href="#"><img src="images/search-icon-black.png"></a></li>
                      </ul>
                   </div>
                   <div></div>
