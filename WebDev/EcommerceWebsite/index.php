@@ -163,7 +163,7 @@ if (isset($_SESSION["user_id"])) {
       <div class="cycle_section layout_padding">
          <div class="container">
             <h1 class="cycle_taital">Our cycle</h1>
-            <p class="cycle_text">W</p>
+            <p class="cycle_text">Upgrade your ride with our premium bikes!<br> Crafted with the best materials and advanced tech, they're durable, reliable, and comfortable.</p>
             <div class="cycle_section_2 layout_padding">
                <div class="row">
                   <div class="col-md-6">
@@ -227,8 +227,8 @@ if (isset($_SESSION["user_id"])) {
       <!-- about section start -->
       <div class="about_section layout_padding">
          <div class="container">
-            <h1 class="about_taital">About Our cycle Store</h1>
-            <p class="about_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters
+            <h1 class="about_taital">About FL BIKES</h1>
+            <p class="about_text">FL Bikes is Cebu's premier online store for pro-level and boutique cycling components. Owned by multi-awarded bike builder Francis Lim, we offer high-end products from top brands like BMC, Cannondale, and KASK. Our inventory includes frames, wheels, brakes, forks, and accessories. Plus, we offer custom bike building services to suit your needs. Upgrade your cycling game with FL Bikes!
             </p>
             <div class="about_main">
                <img src="images/img-5.png" class="image_5">
@@ -244,15 +244,32 @@ if (isset($_SESSION["user_id"])) {
                <div class="carousel-item active">
                   <div class="container">
                      <div class="client_main">
-                        <h1 class="client_taital">Says Customers</h1>
+                        <h1 class="client_taital">CUSTOMER REVIEWS</h1>
                         <div class="client_section_2">
                            <div class="client_left">
-                              <div><img src="images/client-img.png" class="client_img"></div>
+                              <div><img src="images/martincustomer.jpg" class="client_img"></div>
                            </div>
                            <div class="client_right">
                               <div class="quote_icon"><img src="images/quote-icon.png"></div>
-                              <p class="client_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-                              <h3 class="client_name">Channery</h3>
+                              <p class="client_text">"I recently purchased a custom-built bike from FL Bikes, and I couldn't be happier with my purchase! The staff was incredibly knowledgeable and helped me choose the perfect components for my riding style. The build quality is top-notch, and the attention to detail is evident in every aspect of the bike. The online shopping experience was seamless, and my bike was delivered to my doorstep in no time. I highly recommend FL Bikes to anyone looking for quality components and excellent customer service!"</p>
+                              <h3 class="client_name">-Martin Daguia</h3>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="carousel-item">
+                  <div class="container">
+                     <div class="client_main">
+                        <h1 class="client_taital">CUSTOMER REVIEWS</h1>
+                        <div class="client_section_2">
+                           <div class="client_left">
+                              <div><img src="images/paj.png" class="client_img"></div>
+                           </div>
+                           <div class="client_right">
+                              <div class="quote_icon"><img src="images/quote-icon.png"></div>
+                              <p class="client_text">FL Bikes exceeded my expectations with their exceptional customer service and product quality. I was in the market for a new bike and found exactly what I was looking for on their website. The ordering process was simple, and my bike arrived quickly and in perfect condition. The attention to detail in the assembly was impressive, and the bike has been a joy to ride. I appreciate the personalized approach that FL Bikes takes, and I would definitely recommend them to anyone in the market for a top-quality bike or cycling components.</p>
+                              <h3 class="client_name">-Joshua Pajarillo</h3>
                            </div>
                         </div>
                      </div>
@@ -264,29 +281,12 @@ if (isset($_SESSION["user_id"])) {
                         <h1 class="client_taital">Says Customers</h1>
                         <div class="client_section_2">
                            <div class="client_left">
-                              <div><img src="images/client-img.png" class="client_img"></div>
+                              <div><img src="images/petersagan.png" class="client_img"></div>
                            </div>
                            <div class="client_right">
                               <div class="quote_icon"><img src="images/quote-icon.png"></div>
-                              <p class="client_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-                              <h3 class="client_name">Channery</h3>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="carousel-item">
-                  <div class="container">
-                     <div class="client_main">
-                        <h1 class="client_taital">Says Customers</h1>
-                        <div class="client_section_2">
-                           <div class="client_left">
-                              <div><img src="images/client-img.png" class="client_img"></div>
-                           </div>
-                           <div class="client_right">
-                              <div class="quote_icon"><img src="images/quote-icon.png"></div>
-                              <p class="client_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-                              <h3 class="client_name">Channery</h3>
+                              <p class="client_text">I recently purchased some bike parts from FL Bikes, and I'm extremely satisfied with my experience. The website was user-friendly, and I was able to easily find the components I needed. The prices were competitive, and the shipping was fast. The parts arrived well-packaged and in excellent condition. I appreciate the high-quality of the components and the excellent customer service I received. I would highly recommend FL Bikes to anyone looking for top-notch cycling components!</p>
+                              <h3 class="client_name">-Peter Sagan</h3>
                            </div>
                         </div>
                      </div>
