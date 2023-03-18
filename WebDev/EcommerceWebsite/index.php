@@ -86,7 +86,7 @@ if (isset($_SESSION["user_id"])) {
 
                         <?php endif; ?>
 
-                        <li><a href="#"><img src="images/trolly-icon.png"></a></li>
+                        <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"></a></li>
                         <li><a href="#"><img src="images/search-icon.png"></a></li>
                      </ul>
                   </div>
