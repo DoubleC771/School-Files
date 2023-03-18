@@ -65,9 +65,6 @@ if (isset($_SESSION["user_id"])) {
                      <a class="nav-link" href="shop.php">Shop</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="news.php">News</a>
-                  </li>
-                  <li class="nav-item">
                      <a class="nav-link" href="contact.php">Contact Us</a>
                   </li>
                </ul>
@@ -302,48 +299,7 @@ if (isset($_SESSION["user_id"])) {
          </div>
       </div>
       <!-- client section end -->
-      <!-- news section start -->
-      <div class="news_section layout_padding">
-         <div class="container">
-            <h1 class="news_taital">News</h1>
-            <p class="news_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using </p>
-            <div class="news_section_2 layout_padding">
-               <div class="row">
-                  <div class="col-sm-4">
-                     <div class="box_main_1">
-                        <div class="zoomout frame"><img src="images/img-6.png"></div>
-                        <div class="padding_15">
-                           <h2 class="speed_text">Speed cycle</h2>
-                           <div class="post_text">Post by : Den <span style="float: right;">20-12-2019</span></div>
-                           <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using </p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-sm-4">
-                     <div class="box_main_1">
-                        <div class="zoomout frame"><img src="images/img-7.png"></div>
-                        <div class="padding_15">
-                           <h2 class="speed_text">Speed cycle</h2>
-                           <div class="post_text">Post by : Den <span style="float: right;">20-12-2019</span></div>
-                           <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using </p>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="col-sm-4">
-                     <div class="box_main_1">
-                        <div class="zoomout frame"><img src="images/img-8.png"></div>
-                        <div class="padding_15">
-                           <h2 class="speed_text">Jaump cycle</h2>
-                           <div class="post_text">Post by : Den <span style="float: right;">20-12-2019</span></div>
-                           <p class="long_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using </p>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- news section end -->
+     
       <!-- contact section start -->
       <div class="contact_section layout_padding">
          <div class="container">
