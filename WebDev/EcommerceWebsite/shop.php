@@ -123,8 +123,8 @@ if (isset($_POST['add_to_cart'])) {
                <span style="font-size:36px;cursor:pointer; color: #fff" onclick="openNav()"><img src="images/toggle-icon.png" style="height: 30px;"></span>
             </div>
          </nav>
-         <!-- banner section start -->
-         <div class="banner_section layout_padding">
+          <!-- banner section start -->
+          <div class="banner_section layout_padding">
             <div id="main_slider" class="carousel slide" data-ride="carousel">
                <div class="carousel-inner">
                   <div class="carousel-item active">
@@ -135,21 +135,49 @@ if (isset($_POST['add_to_cart'])) {
                               <div class="image_1"><img src="images/img-1.png"></div>
                            </div>
                            <div class="col-md-5">
-                              <h1 class="banner_taital">New Model Cycle</h1>
-                              <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content </p>
-                              <div class="add_cart" style = "width: 100%;float: left;margin-top: 20px;width: 180px;
-    float: left;
-    font-size: 18px;
-    color: #ffffff;
-    text-align: center;
-    background-color: green;
-    padding: 8px 0px;color: #000;
-    background-color: #ffffff;"><a href="contact.php"> View Product </a></div>
+                              <h1 class="banner_taital">(BRAND)</h1>
+                              <p class="banner_text">Go green, get a bike! It's healthy, eco-friendly, and cost-effective. </p>
+                              <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="container">
+                        <div class="row">
+                           <div class="col-md-7">
+                              <div class="best_text">Best</div>
+                              <div class="image_1"><img src="images/img-1.png"></div>
+                           </div>
+                           <div class="col-md-5">
+                              <h1 class="banner_taital">(Brand)</h1>
+                              <p class="banner_text">Experience cycling joy! Our affordable, efficient bikes are perfect for commuting or leisure. </p>
+                              <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="container">
+                        <div class="row">
+                           <div class="col-md-7">
+                              <div class="best_text">Best</div>
+                              <div class="image_1"><img src="images/img-1.png"></div>
+                           </div>
+                           <div class="col-md-5">
+                              <h1 class="banner_taital">(Brand)</h1>
+                              <p class="banner_text">Ride to a better you! Our comfortable bikes are perfect for urban commuters and fitness enthusiasts.  </p>
+                              <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
+               <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+               <i class="fa fa-angle-left"></i>
+               </a>
+               <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+               <i class="fa fa-angle-right"></i>
                </a>
             </div>
          </div>

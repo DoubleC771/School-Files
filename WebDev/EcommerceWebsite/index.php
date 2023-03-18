@@ -110,8 +110,8 @@ if (isset($_SESSION["user_id"])) {
                               <div class="image_1"><img src="images/img-1.png"></div>
                            </div>
                            <div class="col-md-5">
-                              <h1 class="banner_taital">New Model Cycle</h1>
-                              <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content </p>
+                              <h1 class="banner_taital">(BRAND)</h1>
+                              <p class="banner_text">Go green, get a bike! It's healthy, eco-friendly, and cost-effective. </p>
                               <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
                            </div>
                         </div>
@@ -125,8 +125,8 @@ if (isset($_SESSION["user_id"])) {
                               <div class="image_1"><img src="images/img-1.png"></div>
                            </div>
                            <div class="col-md-5">
-                              <h1 class="banner_taital">New Model Cycle</h1>
-                              <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content </p>
+                              <h1 class="banner_taital">(Brand)</h1>
+                              <p class="banner_text">Experience cycling joy! Our affordable, efficient bikes are perfect for commuting or leisure. </p>
                               <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
                            </div>
                         </div>
@@ -140,8 +140,8 @@ if (isset($_SESSION["user_id"])) {
                               <div class="image_1"><img src="images/img-1.png"></div>
                            </div>
                            <div class="col-md-5">
-                              <h1 class="banner_taital">New Model Cycle</h1>
-                              <p class="banner_text">It is a long established fact that a reader will be distracted by the readable content </p>
+                              <h1 class="banner_taital">(Brand)</h1>
+                              <p class="banner_text">Ride to a better you! Our comfortable bikes are perfect for urban commuters and fitness enthusiasts.  </p>
                               <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
                            </div>
                         </div>
@@ -163,7 +163,7 @@ if (isset($_SESSION["user_id"])) {
       <div class="cycle_section layout_padding">
          <div class="container">
             <h1 class="cycle_taital">Our cycle</h1>
-            <p class="cycle_text">It is a long established fact that a reader will be distracted by the </p>
+            <p class="cycle_text">W</p>
             <div class="cycle_section_2 layout_padding">
                <div class="row">
                   <div class="col-md-6">
