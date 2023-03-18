@@ -100,25 +100,20 @@ if (isset($_POST['add_to_cart'])) {
                   <div class="login_menu">
                      <ul>
                         <!-- php goes here -->
-                        <?php if (isset($user)): ?>
-
+                        <?php if (isset($user)): 
+                           $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
+                           $cart_count = mysqli_num_rows($select_rows);
+                           ?>
                            <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php">Logout</a></li>
-
+                           <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
+                           <li><a href="#"><img src="images/search-icon.png"></a></li>
                         <?php else: ?>
                            <li><a href="login.php">Login</a></li>
                            <li><a href="signup.php ">Sign Up</a></li>
-
+                           <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"></a></li>
+                           <li><a href="#"><img src="images/search-icon.png"></a></li>
                         <?php endif; ?>
-
-                        <?php 
-                        
-                        $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
-                        $cart_count = mysqli_num_rows($select_rows);
-
-                        ?>
-                        <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
-                        <li><a href="#"><img src="images/search-icon.png"></a></li>
                      </ul>
                   </div>
                   <div></div>
@@ -163,6 +158,7 @@ if (isset($_POST['add_to_cart'])) {
     <div class = "container">
         <h1 align = "center"> All Bike Models </h1> <br>
         <?php 
+            include ("db_connection.php");
             $query = "SELECT * FROM `bikeorder` ORDER by `OrderID` ASC";
             $result = mysqli_query($conn, $query);
 
@@ -175,7 +171,7 @@ if (isset($_POST['add_to_cart'])) {
                               <img src = "ShoppingImages/<?php echo $row["Image"]; ?>" class = "card-img-top">
                               <div class = "card-body">
                                  <h3 class = "card-title"><?php echo $row["BikeName"]; ?></h3>
-                                 <p class = "card-text"> Sample desc of a bike </p>
+                                 <p class = "card-text"> <?php echo $row["Description"]; ?> </p>
                                  <div class="price">$<?php echo $row["Price"]; ?></div>
                                  <input type="hidden" name = "product_name" value = "<?php echo $row["BikeName"]; ?>">
                                  <input type="hidden" name = "product_price" value = "<?php echo $row["Price"]; ?>">
