@@ -200,11 +200,12 @@ if (isset($_POST['add_to_cart'])) {
                               <div class = "card-body">
                                  <h3 class = "card-title"><?php echo $row["BikeName"]; ?></h3>
                                  <p class = "card-text"> <?php echo $row["Description"]; ?> </p>
+                                 <p class = "card-text" style = "color:red"> Stocks Available: <?php echo $row["Stocks"]; ?> </p>
                                  <div class="price">$<?php echo $row["Price"]; ?></div>
                                  <input type="hidden" name = "product_name" value = "<?php echo $row["BikeName"]; ?>">
                                  <input type="hidden" name = "product_price" value = "<?php echo $row["Price"]; ?>">
                                  <input type="hidden" name = "product_image" value = "<?php echo $row["Image"]; ?>">
-                                    <input type ="submit" class = "btn btn-primary" value = "Add to Cart" name = "add_to_cart">
+                                 <input type ="submit" class = "btn btn-primary" value = "Add to Cart" name = "add_to_cart">
                               </div>
                               </div>
                            </div>
