@@ -81,19 +81,19 @@ if (isset($_POST['add_to_cart'])) {
                      <a class="nav-link" href="index.php">Home</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="about.html">About</a>
+                     <a class="nav-link" href="about.php">About</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="cycle.html">Our Cycle</a>
+                     <a class="nav-link" href="cycle.php">Our Cycle</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="shop.php">Shop</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="news.html">News</a>
+                     <a class="nav-link" href="news.php">News</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="contact.html">Contact Us</a>
+                     <a class="nav-link" href="contact.php">Contact Us</a>
                   </li>
                </ul>
                <form class="form-inline my-2 my-lg-0">
@@ -149,7 +149,7 @@ if (isset($_POST['add_to_cart'])) {
     text-align: center;
     background-color: green;
     padding: 8px 0px;color: #000;
-    background-color: #ffffff;"><a href="contact.html">Add to Cart</a></div>
+    background-color: #ffffff;"><a href="contact.php">Add to Cart</a></div>
                            </div>
                         </div>
                      </div>
