@@ -149,7 +149,7 @@ if (isset($_POST['add_to_cart'])) {
     text-align: center;
     background-color: green;
     padding: 8px 0px;color: #000;
-    background-color: #ffffff;"><a href="contact.php">Add to Cart</a></div>
+    background-color: #ffffff;"><a href="contact.php"> View Product </a></div>
                            </div>
                         </div>
                      </div>

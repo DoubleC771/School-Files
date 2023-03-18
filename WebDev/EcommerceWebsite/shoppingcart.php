@@ -171,7 +171,7 @@ if (isset($_GET['delete_all'])) {
                     <td> 
                         <form action = "" method = "post">
                             <input type = "hidden" name = "update_quantity_id" value = "<?php echo $result['OrderID']; ?> ">
-                            <input type = "number" class = "form-control" id = "typeNumber" name = "update_quantity" min = "1" value = "<?php echo $result['Quantity']; ?> " > <br>
+                            <input type = "number" class = "form-control" id = "typeNumber" name = "update_quantity" min = "1" value = "<?php echo $result['Quantity']; ?>">
                             <input type = "submit" value = "Update" name = "update_update_btn" class = "btn btn-secondary">
                         </form>
                     </td>
@@ -198,6 +198,9 @@ if (isset($_GET['delete_all'])) {
 
             </tbody>
         </table>
+        <div class="d-grid gap-2 col-6 mx-auto">
+        <a href = "checkout.php" class = "btn btn-outline-primary" style ="margin-bottom: 5rem">Checkout</a>
+      </div>
     </div>
         <div class="footer_section layout_padding">
          <div class="container-fluid">
