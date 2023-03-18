@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 18, 2023 at 06:01 PM
+-- Generation Time: Mar 18, 2023 at 06:14 PM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -66,33 +66,35 @@ CREATE TABLE `cart` (
 
 CREATE TABLE `logintable` (
   `CustomerID` int(11) NOT NULL,
+  `OrderID` int(11) NOT NULL,
   `firstname` varchar(50) NOT NULL,
   `lastname` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
-  `UserType` int(255) NOT NULL
+  `password` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `logintable`
 --
 
-INSERT INTO `logintable` (`CustomerID`, `firstname`, `lastname`, `address`, `city`, `username`, `password`, `UserType`) VALUES
-(1, 'Edzie Mari', 'Navarra', '1234', 'Bacolod City', 'deez', 'deez', 1),
-(11, 'martin', 'daguia', '2131', 'Bacolod', 'hein', 'hein', 2),
-(16, 'heinrich', 'imperial', '1234', 'dasdasd', 'hein', 'hein', 1);
+INSERT INTO `logintable` (`CustomerID`, `OrderID`, `firstname`, `lastname`, `address`, `city`, `username`, `password`) VALUES
+(1, 0, 'Edzie', 'Navarra', '1243', 'Bacolod City', 'deeznuts', 'deeznuts'),
+(3, 0, 'Danrev', 'Villarosa', '1234', 'Bacolod City', 'ilikeu', 'ilikeu'),
+(4, 0, 'Danrev', 'Villarosa', '1234', 'Bacolod City', 'ilikeu', 'ilikeu'),
+(5, 0, 'Heinrich', 'Imperial', '1234', 'Bacolod', 'mamamia', 'mamamia'),
+(6, 0, 'Heinrich', 'Imperial', '1234', 'Bacolod', 'mamamia', 'mamamia'),
+(7, 0, 'Peter', 'Griffin', '1243', 'Bacolod', 'mamacook', 'mamacook'),
+(8, 0, 'Peter', 'Griffin', '1243', 'Bacolod', 'mamacook', 'mamacook'),
+(9, 0, 'dan', 'vil', 'villa angela', 'Bacolod City', 'drev', '1234'),
+(10, 0, 'dan', 'vil', 'villa angela', 'Bacolod City', 'drev', '1234'),
+(11, 0, 'dan', 'vil', 'villa angela', 'Bacolod City', 'drev', '1234'),
+(12, 0, 'dan', 'vil', 'villa angela', 'Bacolod City', 'drev', '1234');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `cart`
---
-ALTER TABLE `cart`
-  ADD PRIMARY KEY (`OrderID`);
 
 --
 -- Indexes for table `logintable`
@@ -105,16 +107,10 @@ ALTER TABLE `logintable`
 --
 
 --
--- AUTO_INCREMENT for table `cart`
---
-ALTER TABLE `cart`
-  MODIFY `OrderID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
---
 -- AUTO_INCREMENT for table `logintable`
 --
 ALTER TABLE `logintable`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
