@@ -18,7 +18,7 @@ if (isset($_SESSION["user_id"])) {
     </head>
     <body>
     <div class = "container" style = "width: 700px;">
-        <h1 align = "center"> Shopping Cart </h1> <br>
+        <h1 align = "center"> Shop </h1> <br>
         <?php 
             $query = "SELECT * FROM `bikeorder` ORDER by `OrderID` ASC";
             $result = mysqli_query($conn, $query);

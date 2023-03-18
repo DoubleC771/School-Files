@@ -61,7 +61,7 @@ if (isset($_SESSION["user_id"])) {
                      <a class="nav-link" href="cycle.html">Our Cycle</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="shop.html">Shop</a>
+                     <a class="nav-link" href="shop.php">Shop</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="news.html">News</a>
