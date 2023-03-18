@@ -70,8 +70,8 @@ if (isset($_SESSION["user_id"])) {
                <form class="form-inline my-2 my-lg-0">
                   <div class="login_menu">
                      <ul>
-                        <!-- php goes here -->
-                        <?php if (isset($user)): 
+                        <?php if (isset($user)):
+                        if ($_SESSION['UserType'] == 1 or $_SESSION['UserType'] == 2) 
                            $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
                            $cart_count = mysqli_num_rows($select_rows);
                            ?>

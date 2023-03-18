@@ -5,7 +5,10 @@ if(isset($_POST['submit'])) {
 		$lastname = $_POST['lastname'];
 		$address = $_POST['address'];
 		$city = $_POST['city'];
-		$sql = "INSERT INTO loginTable (firstname, lastname, address, city) VALUES ('$firstname', '$lastname', '$address', '$city')";
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    $usertype = $_POST['usertype'];
+		$sql = "INSERT INTO loginTable (firstname, lastname, address, city, username, password, usertype) VALUES ('$firstname', '$lastname', '$address', '$city', '$username', '$password', '$usertype')";
 		if (mysqli_query($conn, $sql)) {
 			echo "";
 		} else {
@@ -55,6 +58,18 @@ if(isset($_POST['submit'])) {
     <label for="inputAddress2">Password</label>
     <input type="password" class="form-control" name="password" placeholder="ilovetrains101">
   </div>
+  <div class="form-check">
+  <input class="form-check-input" type="radio" name="usertype" id="flexRadioDefault1" value = "1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    1 (Admin Access)
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="usertype" id="flexRadioDefault2" value = "2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+    2 
+  </label>
+</div>
   <table>
     <thead>
   <tr>

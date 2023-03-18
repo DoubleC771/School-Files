@@ -10,7 +10,8 @@ if(isset($_POST['submit'])) {
 		$city = $_POST['city'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-		$sql = "UPDATE `logintable` SET `CustomerID`='$id',`firstname`='$firstname',`lastname`='$lastname',`address`='$address',`city`='$city',`username`='$username',`password`='$password' WHERE `CustomerID` = '$id'";
+    $usertype = $_POST['usertype'];
+		$sql = "UPDATE `logintable` SET `CustomerID`='$id',`firstname`='$firstname',`lastname`='$lastname',`address`='$address',`city`='$city',`username`='$username',`password`='$password',`usertype`='$usertype' WHERE `CustomerID` = '$id'";
 		if (mysqli_query($conn, $sql)) {
 			echo "";
 		} else {
@@ -46,7 +47,7 @@ if(isset($_POST['submit'])) {
     </div>
     <div class="form-group">
     <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" name="address" placeholder="1234 Main St">
+    <input type="text" class="form-control" name="address" placeholder="1234 Main St" >
   </div>
   <div class="form-group">
     <label for="inputAddress2">City</label>
@@ -60,6 +61,18 @@ if(isset($_POST['submit'])) {
     <label for="inputAddress2">Password</label>
     <input type="password" class="form-control" name="password" placeholder="ilovetrains101">
   </div>
+  <div class="form-check">
+  <input class="form-check-input" type="radio" name="usertype" id="flexRadioDefault1" value = "1">
+  <label class="form-check-label" for="flexRadioDefault1">
+    1 (Admin Access)
+  </label>
+</div>
+<div class="form-check">
+  <input class="form-check-input" type="radio" name="usertype" id="flexRadioDefault2" value = "2" checked>
+  <label class="form-check-label" for="flexRadioDefault2">
+    2 
+  </label>
+</div>
   <table>
     <thead>
   <tr>
