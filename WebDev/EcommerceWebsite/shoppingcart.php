@@ -96,19 +96,19 @@ if (isset($_GET['delete_all'])) {
                      <a class="nav-link" href="index.php">Home</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="about.html">About</a>
+                     <a class="nav-link" href="about.php">About</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="cycle.html">Our Cycle</a>
+                     <a class="nav-link" href="cycle.php">Our Cycle</a>
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="shop.php">Shop</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="news.html">News</a>
+                     <a class="nav-link" href="news.php">News</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="contact.html">Contact Us</a>
+                     <a class="nav-link" href="contact.php">Contact Us</a>
                   </li>
                </ul>
                <form class="form-inline my-2 my-lg-0">
