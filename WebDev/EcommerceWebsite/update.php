@@ -3,6 +3,15 @@ include("db_connection.php");
 
 $id = $_GET['updateid'];
 
+session_start();
+if (isset($_SESSION["user_id"])) {
+   include ("db_connection.php");
+   $sql = "SELECT * FROM `logintable` WHERE CustomerID = {$_SESSION["user_id"]}";
+   $result = $conn->query($sql);
+   $user = $result->fetch_assoc();
+}
+
+
 if(isset($_POST['submit'])) {
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
@@ -76,8 +85,10 @@ if(isset($_POST['submit'])) {
   <table>
     <thead>
   <tr>
-		<td> 
+		<td> <?php if ($user['UserType'] == 1): ?>
       <a href = 'display.php?' class='btn btn-success'> Back </a>	
+    <?php else: ?>
+    <?php endif; ?>
       <input type="submit" name="submit" value="Submit" class = "btn btn-primary">
       </div>		
 		</td>
