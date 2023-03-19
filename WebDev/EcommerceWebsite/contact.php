@@ -109,7 +109,7 @@ if (isset($_SESSION["user_id"])) {
                            <div class="col-md-5">
                               <h1 class="banner_taital"> 2023 Canyon Aeroad CF SLX 7 Disc Etap</h1>
                               <p class="banner_text">Go green, get a bike! It's healthy, eco-friendly, and cost-effective. </p>
-                              <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
+                              <div class="contact_bt"><a href="cycle.php">Shop Now</a></div>
                            </div>
                         </div>
                      </div>
@@ -124,7 +124,7 @@ if (isset($_SESSION["user_id"])) {
                            <div class="col-md-5">
                               <h1 class="banner_taital"> 2023 Canyon LUX World Cup CF 7</h1>
                               <p class="banner_text">Experience cycling joy! Our affordable, efficient bikes are perfect for commuting or leisure. </p>
-                              <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
+                              <div class="contact_bt"><a href="cycle.php">Shop Now</a></div>
                            </div>
                         </div>
                      </div>
@@ -139,7 +139,7 @@ if (isset($_SESSION["user_id"])) {
                            <div class="col-md-5">
                               <h1 class="banner_taital">2023 Canyon Exceed CF 7</h1>
                               <p class="banner_text">Ride to a better you! Our comfortable bikes are perfect for urban commuters and fitness enthusiasts.  </p>
-                              <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
+                              <div class="contact_bt"><a href="cycle.php">Shop Now</a></div>
                            </div>
                         </div>
                      </div>
