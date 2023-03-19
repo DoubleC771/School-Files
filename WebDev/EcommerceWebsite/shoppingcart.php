@@ -2,14 +2,15 @@
 session_start();
 if (isset($_SESSION["user_id"])) {
    include ("db_connection.php");
+   $sql = "SELECT * FROM `logintable` WHERE CustomerID = {$_SESSION["user_id"]}";
+   $result = $conn->query($sql);
+   $user = $result->fetch_assoc();
 }
 
 if (isset($_POST['update_update_btn'])) {
-
     $update_quantity = $_POST['update_quantity'];
     $update_id = $_POST['update_quantity_id'];
     $updatequery = mysqli_query($conn, "UPDATE `cart` SET `Quantity` = '$update_quantity' WHERE `OrderID` = '$update_id'");
-
     if ($updatequery) {
         header('location:shoppingcart.php');
     }
