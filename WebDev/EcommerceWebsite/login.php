@@ -27,7 +27,7 @@ include("db_connection.php");
 <head>
 	<title>PHP Form</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <link rel = "stylesheet" href = "style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;600&display=swap" rel="stylesheet"> 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,6 +38,8 @@ include("db_connection.php");
 	  <link rel="stylesheet" type="text/css" href="./css/bootstrap-icons.css">
 </head>
 <body>
+    <div class = "bodybg2">
+</div>
     <form method="POST">
     <div class="col-md-4 border rounded mx-auto mt-5 p-4 shadow">
 			
@@ -56,7 +58,7 @@ include("db_connection.php");
 			</div>
 			<button class="btn btn-primary col-12">Login</button>
 			<div class="m-2">
-				Dont have an account? <a href="signup.php">signup here</a>
+				Dont have an account? <a href="signup.php">Signup here</a>
 			</div>
 		</div>
     </form>
