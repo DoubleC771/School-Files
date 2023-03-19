@@ -112,7 +112,7 @@ $cart_count = mysqli_num_rows($select_rows);
                         <div class="col-md-5">
                            <h1 class="banner_taital"> 2023 Canyon Aeroad CF SLX 7 Disc Etap</h1>
                            <p class="banner_text">Go green, get a bike! It's healthy, eco-friendly, and cost-effective. </p>
-                           <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
+                           <div class="contact_bt"><a href="cycle.php">Shop Now</a></div>
                         </div>
                      </div>
                   </div>
@@ -127,7 +127,7 @@ $cart_count = mysqli_num_rows($select_rows);
                         <div class="col-md-5">
                            <h1 class="banner_taital"> 2023 Canyon LUX World Cup CF 7</h1>
                            <p class="banner_text">Experience cycling joy! Our affordable, efficient bikes are perfect for commuting or leisure. </p>
-                           <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
+                           <div class="contact_bt"><a href="cycle.php">Shop Now</a></div>
                         </div>
                      </div>
                   </div>
@@ -142,7 +142,7 @@ $cart_count = mysqli_num_rows($select_rows);
                         <div class="col-md-5">
                            <h1 class="banner_taital">2023 Canyon Exceed CF 7</h1>
                            <p class="banner_text">Ride to a better you! Our comfortable bikes are perfect for urban commuters and fitness enthusiasts.  </p>
-                           <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
+                           <div class="contact_bt"><a href="cycle.php">Shop Now</a></div>
                         </div>
                      </div>
                   </div>
@@ -177,7 +177,7 @@ $cart_count = mysqli_num_rows($select_rows);
                   <p class="lorem_text">For anyone who lives in a hilly region, or simply enjoys the feeling of riding a super lightweight bike, the Factor O2 VAM proves to be the ultimate racing bike for hill climbing, stable descending, and all round ass kicking. The super lightweight Factor O2 VAM is the best choice for riders looking to get every last ounce out of their power output.
                     </p>
                   <div class="btn_main">
-                     <div class="buy_bt"><a href="#">Buy Now</a></div>
+                     <div class="buy_bt"><a href="cycle.php">Buy Now</a></div>
                      <h4 class="price_text">Price <span style=" color: #f7c17b">₱</span> <span style=" color: #325662">320,000</span></h4>
                   </div>
                </div>
@@ -189,7 +189,7 @@ $cart_count = mysqli_num_rows($select_rows);
                   <h1 class="cycles_text">S-Works SL7 frameset</h1>
                   <p class="lorem_text">Introducing the new Tarmac bike: the ultimate race bike without compromise. With advanced technologies like the FreeFoil Shape Library and Rider-First Engineered frame, you no longer have to choose between aerodynamics and weight or ride quality and speed. This bike is both the lightest and fastest allowed by UCI regulations. The S-Works Tarmac Frameset is the ideal starting point for your custom build. Get ready to ride fast with your dream bike.</p>
                   <div class="btn_main">
-                     <div class="buy_bt"><a href="#">Buy Now</a></div>
+                     <div class="buy_bt"><a href="cycle.php">Buy Now</a></div>
                      <h4 class="price_text">Price <span style=" color: #f7c17b">₱</span> <span style=" color: #325662">345,000</span></h4>
                   </div>
                </div>
@@ -213,14 +213,14 @@ $cart_count = mysqli_num_rows($select_rows);
                   <h1 class="cycles_text">Canyon Torque CF 8</h1>
                   <p class="lorem_text">Bike park laps or enduro trails? 29 or 27.5 inch wheels? With the brand-new Torque CF 8, get the best of all worlds thanks to mullet wheel sizing and a progressive, highly-adjustable geometry.</p>
                   <div class="btn_main">
-                     <div class="buy_bt"><a href="#">Buy Now</a></div>
+                     <div class="buy_bt"><a href="cycle.php">Buy Now</a></div>
                      <h4 class="price_text">Price <span style=" color: #f7c17b">₱</span> <span style=" color: #325662">243,360</span></h4>
                   </div>
                </div>
             </div>
          </div>
          <div class="read_btn_main">
-            <div class="read_bt"><a href="#">Read More</a></div>
+            <div class="read_bt"><a href="cycle.php">Read More</a></div>
          </div>
       </div>
    </div>
@@ -234,7 +234,7 @@ $cart_count = mysqli_num_rows($select_rows);
          <div class="about_main">
             <img src="images/img-5.png" class="image_5">
          </div>
-         <div class="read_bt_1"><a href="#">Read More</a></div>
+         <div class="read_bt_1"><a href="cycle.php">Read More</a></div>
       </div>
    </div>
    <!-- about section end -->
