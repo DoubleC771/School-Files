@@ -47,7 +47,7 @@ $cart_count = mysqli_num_rows($select_rows);
       <!-- header section start -->
       <div class="header_section header_bg">
          <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a href="index.php" class="logo"><img src="images/logo.png"></a>
+            <a href="index.php" class="logo"><img src="images/logo2.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
