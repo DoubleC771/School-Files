@@ -161,7 +161,7 @@ if (isset($_GET['delete_all'])) {
                 <tr>
                     <td> <img src = "ShoppingImages/<?php echo $result['Image']; ?>" </td>
                     <td> <?php echo $result['BikeName']; ?> </td>
-                    <td> $<?php echo number_format($result['Price']); ?> </td>
+                    <td> ₱<?php echo number_format($result['Price']); ?> </td>
                     <td> 
                         <form action = "" method = "post">
                             <input type = "hidden" name = "update_quantity_id" value = "<?php echo $result['OrderID']; ?> ">
@@ -169,7 +169,7 @@ if (isset($_GET['delete_all'])) {
                             <input type = "submit" value = "Update" name = "update_update_btn" class = "btn btn-secondary">
                         </form>
                     </td>
-                    <td>$<?php echo number_format($subtotal = (int)$result['Price'] * (int)$result['Quantity']); ?></td>
+                    <td>₱<?php echo number_format($subtotal = (int)$result['Price'] * (int)$result['Quantity']); ?></td>
                     <td><a href = 'shoppingcart.php?removeid=<?php echo $result['OrderID']; ?>' onclick ="return confirm('Remove item from cart?')" class = "btn btn-warning">Remove</a></td>
                 </tr>
 
@@ -186,7 +186,7 @@ if (isset($_GET['delete_all'])) {
                 <tr>
                     <td><a href = "shop.php" class = "btn btn-info"> Continue Shopping? </td>
                     <td colspan = "3">Grand Total</td>
-                    <td> $<?php echo number_format($total); ?> </td>
+                    <td> ₱<?php echo number_format($total); ?> </td>
                     <td> <a href = "shoppingcart.php?delete_all" onclick ="return confirm('Remove all items from the cart?')" class = "btn btn-danger">Remove all</a></td>
                 </tr>
 
