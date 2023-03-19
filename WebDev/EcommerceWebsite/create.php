@@ -65,9 +65,9 @@ if(isset($_POST['submit'])) {
   </label>
 </div>
 <div class="form-check">
-  <input class="form-check-input" type="radio" name="usertype" id="flexRadioDefault2" value = "2" checked>
+  <input class="form-check-input" type="radio" name="usertype" id="flexRadioDefault2" value = "0" checked>
   <label class="form-check-label" for="flexRadioDefault2">
-    2 
+    0
   </label>
 </div>
   <table>
