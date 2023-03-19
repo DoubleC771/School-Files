@@ -1,7 +1,7 @@
 <?php 
 session_start();
+include ("db_connection.php");
 if (isset($_SESSION["user_id"])) {
-   include ("db_connection.php");
    $sql = "SELECT * FROM `logintable` WHERE CustomerID = {$_SESSION["user_id"]}";
    $result = $conn->query($sql);
    $user = $result->fetch_assoc();
@@ -110,22 +110,23 @@ if (isset($_GET['delete_all'])) {
                <form class="form-inline my-2 my-lg-0">
                   <div class="login_menu">
                      <ul>
-                     <?php if ($user['UserType'] == 1 OR $user['UserType'] == 0) {
-                           $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
-                           $cart_count = mysqli_num_rows($select_rows);
-                           ?>
+                     <?php if ($user['UserType'] == 1): ?>
                            <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php">Logout</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
                            <li><a href="#"><img src="images/search-icon.png"></a></li>
-                        <?php if ($user['UserType'] == 1) { ?>
                            <li><a href="display.php">Admin</a></li>
-                        <?php }} else { ?>
+                     <?php elseif ($norm): ?>
+                           <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
+                           <li><a href="logout.php">Logout</a></li>
+                           <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
+                           <li><a href="#"><img src="images/search-icon.png"></a></li>
+                     <?php elseif (!isset($user)): ?>
                            <li><a href="login.php">Login</a></li>
                            <li><a href="signup.php ">Sign Up</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"></a></li>
-                           <li><a href="#"><img src="images/search-icon.png"></a></li>
-                        <?php } ?>
+                           <li><a href="#"><img src="images/search-icon-black.png"></a></li>
+                     <?php endif; ?>
                      </ul>
                   </div>
                   <div></div>
