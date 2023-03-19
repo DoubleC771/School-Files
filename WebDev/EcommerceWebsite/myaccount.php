@@ -41,6 +41,11 @@ if (isset($_SESSION["user_id"])) {
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesoeet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <meta charset="utf-8">
+	   <meta name="viewport" content="width=device-width, initial-scale=1">
+	   <title>Profile</title>
+	   <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+	   <link rel="stylesheet" type="text/css" href="./css/bootstrap-icons.css">
    </head>
    <body>
         <div class="header_section header_bg">
@@ -81,7 +86,7 @@ if (isset($_SESSION["user_id"])) {
                            <li><a href="login.php">Login</a></li>
                            <li><a href="signup.php ">Sign Up</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"></a></li>
-                           <li><a href="#"><img src="images/search-icon.png"></a></li>
+                           <li><a href="#"><img src="images/search-icon-black.png"></a></li>
                         <?php } ?>
                         </ul>
                   </div>
@@ -89,20 +94,44 @@ if (isset($_SESSION["user_id"])) {
                </form>
             </div>
             <div id="main">
-               <span style="font-size:36px;cursor:pointer; color: #fff" onclick="openNav()"><img src="images/toggle-icon.png" style="height: 30px;"></span>
+               <span style="font-size:36px;cursor:pointer; color: #fff" onclick="openNav()"><img src="images/toggle-icon-black.png" style="height: 30px;"></span>
             </div>
          </nav>
         </div>
-        <div>
-        <div>
-        First Name: <?= htmlspecialchars($user['firstname'])?>
-        <br> Last Name: <?= htmlspecialchars($user['lastname'])?>
-        <br> Address: <?= htmlspecialchars($user['address'])?>
-        <br> City: <?= htmlspecialchars($user['city'])?>
-        <br> Username: <?= htmlspecialchars($user['username'])?>
-        <br> Password: <?= htmlspecialchars($user['password'])?>
-        </div>
-        </div>
+      </div>
+   </div>
+   <br>
+   <!-- Start here for account table -->
+   <div class="row col-lg-8 border rounded mx-auto mt-5 p-2 shadow-lg">
+			<div class="col-md-4 text-center">
+            <img src="<?=get_image($user['Image'])?>" class="img-fluid rounded" style="width: 180px;height:180px;object-fit: cover;">
+         <div>
+                  <a href="update.php?updateid=<?php echo $user['CustomerID']?>">
+							<button class="mx-auto m-1 btn-sm btn btn-primary">Edit</button>
+						</a>
+						<a href="delete.php?deleteid=<?php echo $user['CustomerID']?>">
+							<button class="mx-auto m-1 btn-sm btn btn-warning text-white">Delete</button>
+						</a>
+						<a href="logout.php">
+							<button class="mx-auto m-1 btn-sm btn btn-info text-white">Logout</button>
+						</a>
+         </div>
+         </div>
+         <div class="col-md-8">
+				<div class="h2">User Profile</div>
+				<table class="table table-striped">
+					<tr><th colspan="2">User Details:</th></tr>
+					<tr><th><i class="bi bi-person-circle"></i> First Name</th><td><?php echo $user['firstname']; ?></td></tr>
+					<tr><th><i class="bi bi-person-square"></i> Last Name</th><td><?php echo $user['lastname'];?></td></tr>
+					<tr><th><i class="bi bi-shop"></i> Address</th><td><?php echo $user['address'];?></td></tr>
+					<tr><th><i class="bi bi-geo-alt-fill"></i> City </th><td><?php echo $user['city'];?></td></tr>
+               <tr><th><i class="person-fill"></i> Username</th><td><?php echo $user['username'];?></td></tr>
+               <tr><th><i class="pass"></i> Password</th><td><?php echo $user['password'];?></td></tr>
+				</table>
+			</div>
+		</div>
+   </div>
+</div>
       <script src="js/jquery.min.js"></script>
       <script src="js/popper.min.js"></script>
       <script src="js/bootstrap.bundle.min.js"></script>
