@@ -88,7 +88,7 @@ if (isset($_POST['add_to_cart'])) {
                   </li>
                   <li class="nav-item">
                      <a class="nav-link" href="shop.php">Shop</a>
-                  </li>>
+                  </li>
                   <li class="nav-item">
                      <a class="nav-link" href="contact.php">Contact Us</a>
                   </li>
