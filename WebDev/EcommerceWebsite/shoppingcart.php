@@ -114,7 +114,7 @@ if (isset($_GET['delete_all'])) {
                <form class="form-inline my-2 my-lg-0">
                   <div class="login_menu">
                      <ul>
-                        <?php if ($user['UserType'] == 1 OR $user['UserType'] == 2) {
+                     <?php if ($user['UserType'] == 1 OR $user['UserType'] == 0) {
                            $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
                            $cart_count = mysqli_num_rows($select_rows);
                            ?>

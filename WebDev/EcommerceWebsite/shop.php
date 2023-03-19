@@ -96,8 +96,7 @@ if (isset($_POST['add_to_cart'])) {
                <form class="form-inline my-2 my-lg-0">
                   <div class="login_menu">
                      <ul>
-                        <!-- php goes here -->
-                        <?php if (isset($user)): 
+                     <?php if ($user['UserType'] == 1 OR $user['UserType'] == 0) {
                            $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
                            $cart_count = mysqli_num_rows($select_rows);
                            ?>
@@ -105,12 +104,14 @@ if (isset($_POST['add_to_cart'])) {
                            <li><a href="logout.php">Logout</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
                            <li><a href="#"><img src="images/search-icon.png"></a></li>
-                        <?php else: ?>
+                        <?php if ($user['UserType'] == 1) { ?>
+                           <li><a href="display.php">Admin</a></li>
+                        <?php }} else { ?>
                            <li><a href="login.php">Login</a></li>
                            <li><a href="signup.php ">Sign Up</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"></a></li>
                            <li><a href="#"><img src="images/search-icon.png"></a></li>
-                        <?php endif; ?>
+                        <?php } ?>
                      </ul>
                   </div>
                   <div></div>
