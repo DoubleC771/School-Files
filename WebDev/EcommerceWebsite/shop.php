@@ -120,8 +120,8 @@ if (isset($_POST['add_to_cart'])) {
                <span style="font-size:36px;cursor:pointer; color: #fff" onclick="openNav()"><img src="images/toggle-icon.png" style="height: 30px;"></span>
             </div>
          </nav>
-          <!-- banner section start -->
-          <div class="banner_section layout_padding">
+         <!-- banner section start -->
+         <div class="banner_section layout_padding">
             <div id="main_slider" class="carousel slide" data-ride="carousel">
                <div class="carousel-inner">
                   <div class="carousel-item active">
@@ -129,10 +129,10 @@ if (isset($_POST['add_to_cart'])) {
                         <div class="row">
                            <div class="col-md-7">
                               <div class="best_text">Best</div>
-                              <div class="image_1"><img src="images/img-1.png"></div>
+                              <div class="image_1"><img src="images/bike.png"></div>
                            </div>
                            <div class="col-md-5">
-                              <h1 class="banner_taital">(BRAND)</h1>
+                              <h1 class="banner_taital">Aeroad CF SLX 7</h1>
                               <p class="banner_text">Go green, get a bike! It's healthy, eco-friendly, and cost-effective. </p>
                               <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
                            </div>
@@ -144,10 +144,10 @@ if (isset($_POST['add_to_cart'])) {
                         <div class="row">
                            <div class="col-md-7">
                               <div class="best_text">Best</div>
-                              <div class="image_1"><img src="images/img-1.png"></div>
+                              <div class="image_1"><img src="images/bike2.png"></div>
                            </div>
                            <div class="col-md-5">
-                              <h1 class="banner_taital">(Brand)</h1>
+                              <h1 class="banner_taital"> 2023 Canyon LUX World Cup CF 7</h1>
                               <p class="banner_text">Experience cycling joy! Our affordable, efficient bikes are perfect for commuting or leisure. </p>
                               <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
                            </div>
@@ -159,10 +159,10 @@ if (isset($_POST['add_to_cart'])) {
                         <div class="row">
                            <div class="col-md-7">
                               <div class="best_text">Best</div>
-                              <div class="image_1"><img src="images/img-1.png"></div>
+                              <div class="image_1"><img src="images/bike3.png"></div>
                            </div>
                            <div class="col-md-5">
-                              <h1 class="banner_taital">(Brand)</h1>
+                              <h1 class="banner_taital">2023 Canyon LUX World Cup CF 7</h1>
                               <p class="banner_text">Ride to a better you! Our comfortable bikes are perfect for urban commuters and fitness enthusiasts.  </p>
                               <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
                            </div>
