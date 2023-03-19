@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2023 at 10:13 AM
+-- Generation Time: Mar 19, 2023 at 12:50 PM
 -- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -32,7 +32,7 @@ CREATE TABLE `bikeorder` (
   `BikeName` varchar(50) NOT NULL,
   `Quantity` int(11) NOT NULL,
   `Image` varchar(50) NOT NULL,
-  `Price` decimal(10,0) NOT NULL,
+  `Price` varchar(255) NOT NULL,
   `Description` varchar(255) NOT NULL,
   `Stocks` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -42,7 +42,12 @@ CREATE TABLE `bikeorder` (
 --
 
 INSERT INTO `bikeorder` (`OrderID`, `BikeName`, `Quantity`, `Image`, `Price`, `Description`, `Stocks`) VALUES
-(0, 'XMX 4000', 0, 'Bike4.JPG', '500', 'idk wat to do', 1000);
+(1, '2023 Canyon Aeroad CF SLX 7 Disc Etap', 0, 'Bike1.JPG', '262,505', 'Experience the incredible speed of a road race bike with world-class aerodynamics. With a newly developed, super-clean aero frame and integrated cockpit, this bike saves watts every time you turn the crank, so you can go faster and attack the field even h', 30),
+(3, '2023 Canyon LUX World Cup CF 7', 0, 'bikeshop2.png', ' 305,000', 'Instant acceleration, high top speed, precise handling: the Lux World Cup 7 comes into its own on techy climbs and is lightning fast when you’re sprinting to the line. Ready to race? Then you just might have found your perfect bike.', 25),
+(4, '2023 Canyon Exceed CF 7', 0, 'Bike3.JPG', ' 136,695', 'It’s even quicker than it looks! The fast and strong Exceed CF 7, with its light frame and unbeatable component spec, is a thoroughbred carbon race hardtail and expects to be ridden like one.', 50),
+(5, 'Factor O2 Carbon Road Frameset', 0, 'bikeshop3.png', '147,690', 'Lightweight all-round racing bike', 49),
+(6, 'S-Works SL7 frameset', 0, 'bikeshop4.png', '345,000', 'Why should you be forced to choose between aerodynamics and weight, between ride quality and speed? It is simple, you should not. Enter the new Tarmac climb on the lightest bike the UCI allows, then descend on the fastest. ', 12),
+(7, 'Canyon Torque CF 8', 0, 'bike6.png', ' 243,360', 'Bike park laps or enduro trails? 29 or 27.5 inch wheels? With the brand-new Torque CF 8, get the best of all worlds thanks to mullet wheel sizing and a progressive, highly-adjustable geometry.', 34);
 
 -- --------------------------------------------------------
 
@@ -80,13 +85,17 @@ CREATE TABLE `logintable` (
 --
 
 INSERT INTO `logintable` (`CustomerID`, `firstname`, `lastname`, `address`, `city`, `username`, `password`, `UserType`) VALUES
-(1, 'Edzie Mari', 'Navarra', '1234', 'Bacolod City', 'deez', 'deez', 1),
-(11, 'martin', 'daguia', '2131', 'Bacolod', 'hein', 'hein', 2),
-(16, 'heinrich', 'imperial', '1234', 'dasdasd', 'hein', 'hein', 1);
+(2, 'dan', 'vil', 'villa angela', 'Bacolod City', 'drev', '1234', 1);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `bikeorder`
+--
+ALTER TABLE `bikeorder`
+  ADD PRIMARY KEY (`OrderID`);
 
 --
 -- Indexes for table `cart`
@@ -105,6 +114,12 @@ ALTER TABLE `logintable`
 --
 
 --
+-- AUTO_INCREMENT for table `bikeorder`
+--
+ALTER TABLE `bikeorder`
+  MODIFY `OrderID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
@@ -114,7 +129,7 @@ ALTER TABLE `cart`
 -- AUTO_INCREMENT for table `logintable`
 --
 ALTER TABLE `logintable`
-  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
