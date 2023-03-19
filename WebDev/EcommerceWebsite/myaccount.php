@@ -6,6 +6,8 @@ if (isset($_SESSION["user_id"])) {
    $result = $conn->query($sql);
    $user = $result->fetch_assoc();
 }
+$select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
+$cart_count = mysqli_num_rows($select_rows);
 ?>
 
 <html>

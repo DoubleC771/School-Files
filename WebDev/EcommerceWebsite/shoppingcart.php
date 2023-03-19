@@ -41,6 +41,8 @@ if (isset($_GET['delete_all'])) {
         die (mysqli_error($conn));
     }
 }
+$select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
+$cart_count = mysqli_num_rows($select_rows);
 ?>
 <!DOCTYPE html>
     <head>

@@ -1,7 +1,7 @@
 <?php 
 session_start();
+include ("db_connection.php");
 if (isset($_SESSION["user_id"])) {
-   include ("db_connection.php");
    $sql = "SELECT * FROM `logintable` WHERE CustomerID = {$_SESSION["user_id"]}";
    $result = $conn->query($sql);
    $user = $result->fetch_assoc();
@@ -25,6 +25,8 @@ if (isset($_POST['add_to_cart'])) {
       echo "Product successfully added to cart";
    }
 }
+$select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
+$cart_count = mysqli_num_rows($select_rows);
 ?>
 
 <html>
@@ -242,7 +244,6 @@ if (isset($_POST['add_to_cart'])) {
    <div class = "container">
         <h1 align = "center"> All Bike Models </h1> <br>
         <?php 
-            include ("db_connection.php");
             $query = "SELECT * FROM `bikeorder` ORDER by `OrderID` ASC";
             $result = mysqli_query($conn, $query);
 
