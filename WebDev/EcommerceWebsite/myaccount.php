@@ -24,6 +24,7 @@ if (isset($_SESSION["user_id"])) {
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
+      <link rel="stylesheet" type="text/css" href="myaccount.css">
       <!-- bootstrap css -->
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
       <!-- style css -->
@@ -48,8 +49,10 @@ if (isset($_SESSION["user_id"])) {
 	   <link rel="stylesheet" type="text/css" href="./css/bootstrap-icons.css">
    </head>
    <body>
+         <div class= "bodybg">
+         </div>
         <div class="header_section header_bg">
-         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+         <nav class="navbar navbar-expand-lg navbar-light">
             <a href="index.php" class="logo"><img src="images/logo.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -94,7 +97,7 @@ if (isset($_SESSION["user_id"])) {
                </form>
             </div>
             <div id="main">
-               <span style="font-size:36px;cursor:pointer; color: #fff" onclick="openNav()"><img src="images/toggle-icon-black.png" style="height: 30px;"></span>
+               <span style="font-size:36px;cursor:pointer; color: #fff" onclick="openNav()"><img src="images/toggle-icon.png" style="height: 30px;"></span>
             </div>
          </nav>
         </div>
@@ -102,6 +105,7 @@ if (isset($_SESSION["user_id"])) {
    </div>
    <br>
    <!-- Start here for account table -->
+
    <div class="row col-lg-8 border rounded mx-auto mt-5 p-2 shadow-lg">
 			<div class="col-md-4 text-center">
             <img src="<?=get_image($user['Image'])?>" class="img-fluid rounded" style="width: 180px;height:180px;object-fit: cover;">

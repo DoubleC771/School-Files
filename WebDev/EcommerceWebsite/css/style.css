@@ -31,6 +31,20 @@ body {
     font-weight: normal;
     overflow-x: hidden;
 }
+.bodybg{
+    content: '' !important;
+    display: block !important;
+    background-attachment: scroll !important;
+    height: 100% !important;
+    left: 0 !important;
+    position: fixed !important;
+    top: 0 !important;
+    width: 100vw !important;
+    z-index: -1000 !important;
+    background-image: url(../images/bg2.png) !important;
+    background-color: #FFFFFF !important;
+    background-size: cover !important;
+}
 
 a {
     color: #1f1f1f;

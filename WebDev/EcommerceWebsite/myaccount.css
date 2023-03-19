@@ -1,0 +1,11 @@
+.header_section{
+    background-image: none !important;
+
+}
+.row{
+    background-color: white !important;
+    opacity: 80%;
+}
+.header_section::after {
+    background-color: transparent !important;  
+}
