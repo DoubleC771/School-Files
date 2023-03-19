@@ -367,7 +367,7 @@ button {
 .banner_taital {
     width: 50%;
     float: left;
-    font-size: 50px;
+    font-size: 30px !important;
     color: #ffffff;
     font-weight: bold;
     font-family: 'Raleway ExtraBold', sans-serif;
@@ -508,7 +508,7 @@ clip-path: polygon(0 0, 75% 8%, 75% 80%, 0% 100%);
 .cycles_text{
     width: 100%;
     float: left;
-    font-size: 40px;
+    font-size: 30px !important;
     color: #1c1c1c;
     font-weight: bold;
     text-align: right;

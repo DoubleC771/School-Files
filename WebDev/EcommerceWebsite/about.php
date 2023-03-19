@@ -107,7 +107,7 @@ if (isset($_SESSION["user_id"])) {
                               <div class="image_1"><img src="images/bike.png"></div>
                            </div>
                            <div class="col-md-5">
-                              <h1 class="banner_taital">Aeroad CF SLX 7</h1>
+                              <h1 class="banner_taital"> 2023 Canyon Aeroad CF SLX 7 Disc Etap</h1>
                               <p class="banner_text">Go green, get a bike! It's healthy, eco-friendly, and cost-effective. </p>
                               <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
                            </div>
@@ -156,19 +156,84 @@ if (isset($_SESSION["user_id"])) {
          <!-- banner section end -->
       </div>
       <!-- header section end -->
-      <!-- about section start -->
-      <div class="about_section layout_padding">
-         <div class="container">
-            <h1 class="about_taital">About Our cycle Store</h1>
-            <p class="about_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters
-            </p>
-            <div class="about_main">
-               <img src="images/img-5.png" class="image_5">
-            </div>
-            <div class="read_bt_1"><a href="#">Read More</a></div>
+     <!-- about section start -->
+   <div class="about_section layout_padding">
+      <div class="container">
+         <h1 class="about_taital">About FL BIKES</h1>
+         <p class="about_text">FL Bikes is Cebu's premier online store for pro-level and boutique cycling components. Owned by multi-awarded bike builder Francis Lim, we offer high-end products from top brands like BMC, Cannondale, and KASK. Our inventory includes frames, wheels, brakes, forks, and accessories. Plus, we offer custom bike building services to suit your needs. Upgrade your cycling game with FL Bikes!
+         </p>
+         <div class="about_main">
+            <img src="images/img-5.png" class="image_5">
          </div>
+         <div class="read_bt_1"><a href="#">Read More</a></div>
       </div>
-      <!-- about section end -->
+   </div>
+   <!-- about section end -->
+   <!-- client section start -->
+   <div class="client_section layout_padding">
+      <div id="my_slider" class="carousel slide" data-ride="carousel">
+         <div class="carousel-inner">
+            <div class="carousel-item active">
+               <div class="container">
+                  <div class="client_main">
+                     <h1 class="client_taital">CUSTOMER REVIEWS</h1>
+                     <div class="client_section_2">
+                        <div class="client_left">
+                           <div><img src="images/martincustomer.jpg" class="client_img"></div>
+                        </div>
+                        <div class="client_right">
+                           <div class="quote_icon"><img src="images/quote-icon.png"></div>
+                           <p class="client_text">"I recently purchased a custom-built bike from FL Bikes, and I couldn't be happier with my purchase! The staff was incredibly knowledgeable and helped me choose the perfect components for my riding style. The build quality is top-notch, and the attention to detail is evident in every aspect of the bike. The online shopping experience was seamless, and my bike was delivered to my doorstep in no time. I highly recommend FL Bikes to anyone looking for quality components and excellent customer service!"</p>
+                           <h3 class="client_name">-Martin Daguia</h3>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <div class="container">
+                  <div class="client_main">
+                     <h1 class="client_taital">CUSTOMER REVIEWS</h1>
+                     <div class="client_section_2">
+                        <div class="client_left">
+                           <div><img src="images/paj.png" class="client_img"></div>
+                        </div>
+                        <div class="client_right">
+                           <div class="quote_icon"><img src="images/quote-icon.png"></div>
+                           <p class="client_text">FL Bikes exceeded my expectations with their exceptional customer service and product quality. I was in the market for a new bike and found exactly what I was looking for on their website. The ordering process was simple, and my bike arrived quickly and in perfect condition. The attention to detail in the assembly was impressive, and the bike has been a joy to ride. I appreciate the personalized approach that FL Bikes takes, and I would definitely recommend them to anyone in the market for a top-quality bike or cycling components.</p>
+                           <h3 class="client_name">-Joshua Pajarillo</h3>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="carousel-item">
+               <div class="container">
+                  <div class="client_main">
+                     <h1 class="client_taital">Says Customers</h1>
+                     <div class="client_section_2">
+                        <div class="client_left">
+                           <div><img src="images/petersagan.png" class="client_img"></div>
+                        </div>
+                        <div class="client_right">
+                           <div class="quote_icon"><img src="images/quote-icon.png"></div>
+                           <p class="client_text">I recently purchased some bike parts from FL Bikes, and I'm extremely satisfied with my experience. The website was user-friendly, and I was able to easily find the components I needed. The prices were competitive, and the shipping was fast. The parts arrived well-packaged and in excellent condition. I appreciate the high-quality of the components and the excellent customer service I received. I would highly recommend FL Bikes to anyone looking for top-notch cycling components!</p>
+                           <h3 class="client_name">-Peter Sagan</h3>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+            <i class="fa fa-angle-left"></i>
+         </a>
+         <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+           <i class="fa fa-angle-right"></i>
+         </a>
+      </div>
+   </div>
+   <!-- client section end -->
       <!-- footer section start -->
       <div class="footer_section layout_padding">
          <div class="container-fluid">

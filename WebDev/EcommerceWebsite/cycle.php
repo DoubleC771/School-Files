@@ -107,7 +107,7 @@ if (isset($_SESSION["user_id"])) {
                               <div class="image_1"><img src="images/bike.png"></div>
                            </div>
                            <div class="col-md-5">
-                              <h1 class="banner_taital">Aeroad CF SLX 7</h1>
+                              <h1 class="banner_taital"> 2023 Canyon Aeroad CF SLX 7 Disc Etap</h1>
                               <p class="banner_text">Go green, get a bike! It's healthy, eco-friendly, and cost-effective. </p>
                               <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
                            </div>
@@ -157,70 +157,71 @@ if (isset($_SESSION["user_id"])) {
       </div>
       <!-- header section end -->
       <!-- cycle section start -->
-      <div class="cycle_section layout_padding">
-         <div class="container">
-            <h1 class="cycle_taital">Our cycle</h1>
-            <p class="cycle_text">It is a long established fact that a reader will be distracted by the </p>
-            <div class="cycle_section_2 layout_padding">
-               <div class="row">
-                  <div class="col-md-6">
-                     <div class="box_main">
-                        <h6 class="number_text">01</h6>
-                        <div class="image_2"><img src="images/img-2.png"></div>
-                     </div>
-                  </div>
-                  <div class="col-md-6">
-                     <h1 class="cycles_text">Cycles</h1>
-                     <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-                     <div class="btn_main">
-                        <div class="buy_bt"><a href="#">Buy Now</a></div>
-                        <h4 class="price_text">Price <span style=" color: #f7c17b">$</span> <span style=" color: #325662">200</span></h4>
-                     </div>
+   <div class="cycle_section layout_padding">
+      <div class="container">
+         <h1 class="cycle_taital">Our cycle</h1>
+         <p class="cycle_text">Upgrade your ride with our premium bikes!<br> Crafted with the best materials and advanced tech, they're durable, reliable, and comfortable.</p>
+         <div class="cycle_section_2 layout_padding">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="box_main">
+                     <h6 class="number_text">01</h6>
+                     <div class="image_2"><img src="images/bike4.png"></div>
                   </div>
                </div>
-            </div>
-            <div class="cycle_section_3 layout_padding">
-               <div class="row">
-                  <div class="col-md-6">
-                     <h1 class="cycles_text">Stylis Cycle</h1>
-                     <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-                     <div class="btn_main">
-                        <div class="buy_bt"><a href="#">Buy Now</a></div>
-                        <h4 class="price_text">Price <span style=" color: #f7c17b">$</span> <span style=" color: #325662">200</span></h4>
-                     </div>
-                  </div>
-                  <div class="col-md-6">
-                     <div class="box_main_3">
-                        <h6 class="number_text_2">02</h6>
-                        <div class="image_2"><img src="images/img-3.png"></div>
-                     </div>
+               <div class="col-md-6">
+                  <h1 class="cycles_text">Factor O2 Carbon Road Frameset</h1>
+                  <p class="lorem_text">For anyone who lives in a hilly region, or simply enjoys the feeling of riding a super lightweight bike, the Factor O2 VAM proves to be the ultimate racing bike for hill climbing, stable descending, and all round ass kicking. The super lightweight Factor O2 VAM is the best choice for riders looking to get every last ounce out of their power output.
+                    </p>
+                  <div class="btn_main">
+                     <div class="buy_bt"><a href="#">Buy Now</a></div>
+                     <h4 class="price_text">Price <span style=" color: #f7c17b">₱</span> <span style=" color: #325662">320,000</span></h4>
                   </div>
                </div>
-            </div>
-            <div class="cycle_section_2 layout_padding">
-               <div class="row">
-                  <div class="col-md-6">
-                     <div class="box_main_3">
-                        <h6 class="number_text_2">03</h6>
-                        <div class="image_2"><img src="images/img-4.png"></div>
-                     </div>
-                  </div>
-                  <div class="col-md-6">
-                     <h1 class="cycles_text">Mordern <br>Cycle</h1>
-                     <p class="lorem_text">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters</p>
-                     <div class="btn_main">
-                        <div class="buy_bt"><a href="#">Buy Now</a></div>
-                        <h4 class="price_text">Price <span style=" color: #f7c17b">$</span> <span style=" color: #325662">200</span></h4>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="read_btn_main">
-               <div class="read_bt"><a href="#">Read More</a></div>
             </div>
          </div>
+         <div class="cycle_section_3 layout_padding">
+            <div class="row">
+               <div class="col-md-6">
+                  <h1 class="cycles_text">S-Works SL7 frameset</h1>
+                  <p class="lorem_text">Introducing the new Tarmac bike: the ultimate race bike without compromise. With advanced technologies like the FreeFoil Shape Library and Rider-First Engineered frame, you no longer have to choose between aerodynamics and weight or ride quality and speed. This bike is both the lightest and fastest allowed by UCI regulations. The S-Works Tarmac Frameset is the ideal starting point for your custom build. Get ready to ride fast with your dream bike.</p>
+                  <div class="btn_main">
+                     <div class="buy_bt"><a href="#">Buy Now</a></div>
+                     <h4 class="price_text">Price <span style=" color: #f7c17b">₱</span> <span style=" color: #325662">345,000</span></h4>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="box_main_3">
+                     <h6 class="number_text_2">02</h6>
+                     <div class="image_2"><img src="images/bike5.png"></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="cycle_section_2 layout_padding">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="box_main_3">
+                     <h6 class="number_text_2">03</h6>
+                     <div class="image_2"><img src="images/bike6.png"></div>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <h1 class="cycles_text">Canyon Torque CF 8</h1>
+                  <p class="lorem_text">Bike park laps or enduro trails? 29 or 27.5 inch wheels? With the brand-new Torque CF 8, get the best of all worlds thanks to mullet wheel sizing and a progressive, highly-adjustable geometry.</p>
+                  <div class="btn_main">
+                     <div class="buy_bt"><a href="#">Buy Now</a></div>
+                     <h4 class="price_text">Price <span style=" color: #f7c17b">₱</span> <span style=" color: #325662">243,360</span></h4>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="read_btn_main">
+            <div class="read_bt"><a href="#">Read More</a></div>
+         </div>
       </div>
-      <!-- cycle section end -->
+   </div>
+   <!-- cycle section end -->
       <!-- footer section start -->
       <div class="footer_section layout_padding">
          <div class="container-fluid">

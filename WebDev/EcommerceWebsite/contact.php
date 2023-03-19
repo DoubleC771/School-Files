@@ -107,7 +107,7 @@ if (isset($_SESSION["user_id"])) {
                               <div class="image_1"><img src="images/bike.png"></div>
                            </div>
                            <div class="col-md-5">
-                              <h1 class="banner_taital">Aeroad CF SLX 7</h1>
+                              <h1 class="banner_taital"> 2023 Canyon Aeroad CF SLX 7 Disc Etap</h1>
                               <p class="banner_text">Go green, get a bike! It's healthy, eco-friendly, and cost-effective. </p>
                               <div class="contact_bt"><a href="contact.php">Shop Now</a></div>
                            </div>
