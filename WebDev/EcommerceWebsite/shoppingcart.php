@@ -102,9 +102,7 @@ if (isset($_GET['delete_all'])) {
                   <li class="nav-item">
                      <a class="nav-link" href="cycle.php">Our Cycle</a>
                   </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="shop.php">Shop</a>
-                  </li>
+
                   <li class="nav-item">
                      <a class="nav-link" href="contact.php">Contact Us</a>
                   </li>

@@ -6,7 +6,8 @@ if (isset($_SESSION["user_id"])) {
    $result = $conn->query($sql);
    $user = $result->fetch_assoc();
 }
-
+$select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
+$cart_count = mysqli_num_rows($select_rows);
 ?>
 
 <!DOCTYPE html>
@@ -61,9 +62,7 @@ if (isset($_SESSION["user_id"])) {
                   <li class="nav-item">
                      <a class="nav-link" href="cycle.php">Our Cycle</a>
                   </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="shop.php">Shop</a>
-                  </li>
+
                   <li class="nav-item">
                      <a class="nav-link" href="contact.php">Contact Us</a>
                   </li>
@@ -71,23 +70,20 @@ if (isset($_SESSION["user_id"])) {
                <form class="form-inline my-2 my-lg-0">
                   <div class="login_menu">
                      <ul>
-                     <?php if ($user['UserType'] == 1 OR $user['UserType'] == 0) {
-                           $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
-                           $cart_count = mysqli_num_rows($select_rows);
-                           ?>
+                     <?php if(isset($user)): ?>
                            <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php">Logout</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
                            <li><a href="#"><img src="images/search-icon.png"></a></li>
-                        <?php if ($user['UserType'] == 1) { ?>
+                     <?php elseif(isset($user['UserType'])): ?>
                            <li><a href="display.php">Admin</a></li>
-                        <?php }} else { ?>
+                     <?php else: ?>
                            <li><a href="login.php">Login</a></li>
                            <li><a href="signup.php ">Sign Up</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"></a></li>
                            <li><a href="#"><img src="images/search-icon.png"></a></li>
-                        <?php } ?>
-                        </ul>
+                     <?php endif; ?>
+                     </ul>
                   </div>
                   <div></div>
                </form>

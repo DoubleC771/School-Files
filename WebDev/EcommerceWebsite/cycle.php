@@ -1,10 +1,29 @@
-<?php
+<?php 
 session_start();
 if (isset($_SESSION["user_id"])) {
    include ("db_connection.php");
    $sql = "SELECT * FROM `logintable` WHERE CustomerID = {$_SESSION["user_id"]}";
    $result = $conn->query($sql);
    $user = $result->fetch_assoc();
+}
+
+if (isset($_POST['add_to_cart'])) {
+
+   $product_name = $_POST['product_name'];
+   $product_price = $_POST['product_price'];
+   $product_image = $_POST['product_image'];
+   $product_quantity = 1;
+
+   $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE `BikeName` = '$product_name'");
+
+   $sql = "INSERT INTO cart (BikeName, Price, Image, Quantity) VALUES ('$product_name', '$product_price', '$product_image', '$product_quantity')";
+
+   if (mysqli_num_rows($select_cart) > 0) {
+      echo "Product already in cart";
+   } else {
+      $result = mysqli_query($conn, $sql);
+      echo "Product successfully added to cart";
+   }
 }
 ?>
 
@@ -60,9 +79,7 @@ if (isset($_SESSION["user_id"])) {
                   <li class="nav-item">
                      <a class="nav-link" href="cycle.php">Our Cycle</a>
                   </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="shop.php">Shop</a>
-                  </li>
+
                   <li class="nav-item">
                      <a class="nav-link" href="contact.php">Contact Us</a>
                   </li>
@@ -221,6 +238,41 @@ if (isset($_SESSION["user_id"])) {
          </div>
       </div>
    </div>
+   <div class = "container">
+        <h1 align = "center"> All Bike Models </h1> <br>
+        <?php 
+            include ("db_connection.php");
+            $query = "SELECT * FROM `bikeorder` ORDER by `OrderID` ASC";
+            $result = mysqli_query($conn, $query);
+
+            if (mysqli_num_rows($result) > 0 ) {
+                while ($row = mysqli_fetch_array($result)) {
+                    ?>
+                        <form action = "" method = "post">
+                           <div class = "card-deck">
+                              <div class = "card">
+                              <img src = "ShoppingImages/<?php echo $row["Image"]; ?>" class = "card-img-top">
+                              <div class = "card-body">
+                                 <h3 class = "card-title"><?php echo $row["BikeName"]; ?></h3>
+                                 <p class = "card-text"> <?php echo $row["Description"]; ?> </p>
+                                 <p class = "card-text" style = "color:red"> Stocks Available: <?php echo $row["Stocks"]; ?> </p>
+                                 <div class="price">₱<?php echo number_format($row["Price"]); ?></div>
+                                 <input type="hidden" name = "product_name" value = "<?php echo $row["BikeName"]; ?>">
+                                 <input type="hidden" name = "product_price" value = "<?php echo $row["Price"]; ?>">
+                                 <input type="hidden" name = "product_image" value = "<?php echo $row["Image"]; ?>">
+                                 <input type ="submit" class = "btn btn-primary" value = "Add to Cart" name = "add_to_cart">
+                              </div>
+                              </div>
+                           </div>
+                        </form>
+                        <br>
+                    <?php
+                }
+            } else {
+                echo "No results found.";
+            }
+        ?>
+        </div>
    <!-- cycle section end -->
       <!-- footer section start -->
       <div class="footer_section layout_padding">
