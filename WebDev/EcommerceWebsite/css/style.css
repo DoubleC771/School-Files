@@ -44,6 +44,8 @@ body {
     background-image: url(../images/bg2.png) !important;
     background-color: #FFFFFF !important;
     background-size: cover !important;
+    filter: blur(2px) !important;
+    -webkit-filter: blur(2px) !important;
 }
 .bodybg2{
     content: '' !important;
@@ -58,6 +60,24 @@ body {
     background-image: url(../images/bikebg.png) !important;
     background-color: #FFFFFF !important;
     background-size: cover !important;
+    filter: blur(2px) !important;
+    -webkit-filter: blur(2px) !important;
+}
+.bodybg3{
+    content: '' !important;
+    display: block !important;
+    background-attachment: scroll !important;
+    height: 100% !important;
+    left: 0 !important;
+    position: fixed !important;
+    top: 0 !important;
+    width: 100vw !important;
+    z-index: -1000 !important;
+    background-image: url(../images/bg3.png) !important;
+    background-color: #FFFFFF !important;
+    background-size: cover !important;
+    filter: blur(2px) !important;
+    -webkit-filter: blur(2px) !important;
 }
 a {
     color: #1f1f1f;
