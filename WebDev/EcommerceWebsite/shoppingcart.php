@@ -185,7 +185,7 @@ $cart_count = mysqli_num_rows($select_rows);
 						<td> No results. </td>
 					</tr>";
                 };
-                ?>
+                $_SESSION['total'] = $total ?>
                 <tr>
                     <td><a href = "shop.php" class = "btn btn-info"> Continue Shopping? </td>
                     <td colspan = "3">Grand Total</td>

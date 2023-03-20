@@ -1,13 +1,13 @@
 <?php
 session_start();
+include ("db_connection.php");
 if (isset($_SESSION["user_id"])) {
-   include ("db_connection.php");
-   $sql = "SELECT * FROM `logintable` WHERE CustomerID = {$_SESSION["user_id"]}";
+   $sql = "SELECT * FROM `logintable` WHERE `CustomerID` = {$_SESSION["user_id"]}";
    $result = $conn->query($sql);
    $user = $result->fetch_assoc();
    $admin = $user['UserType'] == 1;
    $norm = $user['UserType'] == 0;
-}
+} 
 $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
 $cart_count = mysqli_num_rows($select_rows);
 ?>
@@ -72,7 +72,7 @@ $cart_count = mysqli_num_rows($select_rows);
                <form class="form-inline my-2 my-lg-0">
                   <div class="login_menu">
                      <ul>
-                     <?php if ($user['UserType'] == 1): ?>
+                     <?php if ($_SESSION['UserType'] == 1): ?>
                            <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php">Logout</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>

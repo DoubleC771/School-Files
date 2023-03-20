@@ -8,9 +8,9 @@ include("db_connection.php");
       $result = $conn->query($sql);
 
       $user = $result->fetch_assoc();
-
+      $pass = $_POST['password'];
       if ($user) {
-         if ($_POST['password'] === $user['password']) {
+         if (password_verify($pass, $user['password'])) {
             session_start();
             session_regenerate_id();
             $_SESSION["user_id"] = $user["CustomerID"];
@@ -25,7 +25,7 @@ include("db_connection.php");
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP Form</title>
+	<title>Login Form</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link rel="stylesheet" type="text/css" href="login.css">
@@ -45,6 +45,11 @@ include("db_connection.php");
     <div class="row col-md-4 border rounded mx-auto mt-5 p-4 shadow">
 			
 			<div class="h2">Login</div>
+      <?php 
+         if ($is_invalid):
+      ?>
+      <em style = "color:red">Invalid Login</em>
+      <?php endif; ?>
 			<div><small class="my-1 js-error js-error-email text-danger"></small></div>
 			<div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1">@</span>
@@ -59,7 +64,7 @@ include("db_connection.php");
 			</div>
 			<button class="btn btn-primary col-12">Login</button>
 			<div class="m-2">
-				Dont have an account? <a href="signup.php">Signup here</a>
+				Don't have an account? <a href="signup.php">Signup here</a>
 			</div>
 		</div>
     </form>

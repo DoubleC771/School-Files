@@ -6,9 +6,10 @@ include("db_connection.php");
 		$lastname = $_POST['lastname'];
 		$address = $_POST['address'];
 		$city = $_POST['city'];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-		$sql = "INSERT INTO loginTable (firstname, lastname, address, city, username, password) VALUES ('$firstname', '$lastname', '$address', '$city', '$username', '$password')";
+    	$username = $_POST['username'];
+    	$password = $_POST['password'];
+		$hashpassword = password_hash($password, PASSWORD_DEFAULT);
+		$sql = "INSERT INTO loginTable (firstname, lastname, address, city, username, password) VALUES ('$firstname', '$lastname', '$address', '$city', '$username', '$hashpassword')";
 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_query($conn, $sql)) {

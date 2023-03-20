@@ -21,10 +21,18 @@ if (isset($_POST['add_to_cart'])) {
    $sql = "INSERT INTO cart (BikeName, Price, Image, Quantity) VALUES ('$product_name', '$product_price', '$product_image', '$product_quantity')";
 
    if (mysqli_num_rows($select_cart) > 0) {
-      echo "Product already in cart";
+      echo '<div class="alert alert-danger" role="alert">
+      Product already in cart! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>';
    } else {
       $result = mysqli_query($conn, $sql);
-      echo "Product successfully added to cart";
+      echo '<div class="alert alert-success" role="alert">
+      Product successfully added to Cart! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    </div>';
    }
 }
 $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
