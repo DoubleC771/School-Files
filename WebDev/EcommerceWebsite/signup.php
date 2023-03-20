@@ -20,7 +20,7 @@ include("db_connection.php");
 		$servername = "localhost";
 
     if ($result) {
-      header('location:signup-success.html');
+      header('location:login.php');
       exit();
   } else {
       die (mysqli_error($conn));
@@ -76,7 +76,7 @@ include("db_connection.php");
 			
 			<div class="input-group mt-3">
 			  <span class="input-group-text" id="basic-addon1">@</span>
-			  <input name="username" type="password" class="form-control p-3" placeholder="Username" >
+			  <input name="username" type="text" class="form-control p-3" placeholder="Username" >
 			</div>
 			<div><small class="js-error js-error-password text-danger"></small></div>
 			<div class="input-group mt-3">
@@ -86,7 +86,7 @@ include("db_connection.php");
 			<div class="progress mt-3 d-none">
 			  <div class="progress-bar" role="progressbar" style="width: 50%;" >Working... 25%</div>
 			</div>
-			<button class="mt-3 btn btn-primary col-12" type = "submit" name = "submit" value = "submit">Signup</button>
+			<button class="mt-3 btn btn-primary col-12" type = "submit" name = "submit" value = "submit" onclick = "return alert('Profile Created Successfully!')">Signup</button>
 			<div class="m-2">
 				Already have an account? <a href="login.php">login here</a>
 			</div>

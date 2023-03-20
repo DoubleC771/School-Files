@@ -5,7 +5,6 @@ $id = $_GET['updateid'];
 
 session_start();
 if (isset($_SESSION["user_id"])) {
-   include ("db_connection.php");
    $sql = "SELECT * FROM `logintable` WHERE CustomerID = {$_SESSION["user_id"]}";
    $result = $conn->query($sql);
    $user = $result->fetch_assoc();
@@ -22,7 +21,7 @@ if(isset($_POST['submit'])) {
     $usertype = $_POST['usertype'];
 		$sql = "UPDATE `logintable` SET `CustomerID`='$id',`firstname`='$firstname',`lastname`='$lastname',`address`='$address',`city`='$city',`username`='$username',`password`='$password',`usertype`='$usertype' WHERE `CustomerID` = '$id'";
 		if (mysqli_query($conn, $sql)) {
-			echo "";
+			header('location: myaccount.php');
 		} else {
 			echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 		}
@@ -43,34 +42,46 @@ if(isset($_POST['submit'])) {
 </head>
 <body>
 	<form method="post" action="">
-    <div class = "form-container" id = "table-container">
-    <h1>Create Profile</h1>
-    <div class="form-row">
-    <div class="col">
-    <label for="FirstName">First Name</label>
-      <input type="text" class="form-control" placeholder="First name" name = "firstname">
-    </div>
-    <div class="col">
-    <label for="Last Name">Last Name</label>
-      <input type="text" class="form-control" placeholder="Last name" name = "lastname">
-    </div>
-    <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" name="address" placeholder="1234 Main St" >
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">City</label>
-    <input type="text" class="form-control" name="city" placeholder="Bacolod City">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Username</label>
-    <input type="text" class="form-control" name="username" placeholder="deeznuts">
-  </div>
-  <div class="form-group">
-    <label for="inputAddress2">Password</label>
-    <input type="password" class="form-control" name="password" placeholder="ilovetrains101">
-  </div>
-  <div class="form-check">
+  <div class="row col-md-8 col-lg-4 border rounded mx-auto mt-5 p-4 shadow">
+			
+			<div class="h2">Update Profile</div>
+			
+			<div class="input-group mt-3">
+			  <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-circle"></i></span>
+			  <input name="firstname" type="text" class="form-control p-3" placeholder="First name" >
+			</div>
+			<div><small class="js-error js-error-firstname text-danger"></small></div>
+			<div class="input-group mt-3">
+			  <span class="input-group-text" id="basic-addon1"><i class="bi bi-person-square"></i></span>
+			  <input name="lastname" type="text" class="form-control p-3" placeholder="Last name" >
+			</div>
+			<div><small class="js-error js-error-lastname text-danger"></small></div>
+			<div class="input-group mt-3">
+			  <span class="input-group-text" id="basic-addon1"><i class="bi bi-shop"></i></span>
+			  <input name="address" type="text" class="form-control p-3" placeholder="Address" >
+			</div>
+			<div><small class="js-error js-error-gender text-danger"></small></div>
+			
+			<div class="input-group mt-3">
+			  <span class="input-group-text" id="basic-addon1"><i class="bi bi-geo-alt-fill"></i></span>
+			  <input name="city" type="text" class="form-control p-3" placeholder="City" >
+			</div>
+			<div><small class="js-error js-error-email text-danger"></small></div>
+			
+			<div class="input-group mt-3">
+			  <span class="input-group-text" id="basic-addon1">@</span>
+			  <input name="username" type="text" class="form-control p-3" placeholder="Username" >
+			</div>
+			<div><small class="js-error js-error-password text-danger"></small></div>
+			<div class="input-group mt-3">
+			  <span class="input-group-text" id="basic-addon1"><i class="bi bi-key-fill"></i></span>
+			  <input name="password" type="password" class="form-control p-3" placeholder="Password" >
+			</div>
+			<div class="progress mt-3 d-none">
+			  <div class="progress-bar" role="progressbar" style="width: 50%;" >Working... 25%</div>
+			</div>
+      <div class="form-check">
+      <?php if ($user['UserType'] == 1): ?>
   <input class="form-check-input" type="radio" name="usertype" id="flexRadioDefault1" value = "1">
   <label class="form-check-label" for="flexRadioDefault1">
     1 (Admin Access)
@@ -81,15 +92,20 @@ if(isset($_POST['submit'])) {
   <label class="form-check-label" for="flexRadioDefault2">
     0
   </label>
+  <?php else: ?>
+    <?php endif; ?>
 </div>
-  <table>
-    <thead>
-  <tr>
-		<td> <?php if ($user['UserType'] == 1): ?>
+<?php if ($user['UserType'] == 1): ?>
       <a href = 'display.php?' class='btn btn-success'> Back </a>	
     <?php else: ?>
     <?php endif; ?>
       <input type="submit" name="submit" value="Submit" class = "btn btn-primary">
+		</div>
+
+  <table>
+    <thead>
+  <tr>
+		<td> 
       </div>		
 		</td>
 	</tr> 

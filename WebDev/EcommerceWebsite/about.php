@@ -5,6 +5,8 @@ if (isset($_SESSION["user_id"])) {
    $sql = "SELECT * FROM `logintable` WHERE CustomerID = {$_SESSION["user_id"]}";
    $result = $conn->query($sql);
    $user = $result->fetch_assoc();
+   $admin = $user['UserType'] == 1;
+   $norm = $user['UserType'] == 0;
 }
 $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
 $cart_count = mysqli_num_rows($select_rows);

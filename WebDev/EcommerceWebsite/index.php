@@ -1,6 +1,6 @@
 <?php
 session_start();
-require ("db_connection.php");
+include("db_connection.php");
 if (isset($_SESSION["user_id"])) {
    $sql = "SELECT * FROM `logintable` WHERE CustomerID = {$_SESSION["user_id"]}";
    $result = $conn->query($sql);
