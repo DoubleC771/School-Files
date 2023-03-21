@@ -5,7 +5,7 @@ $total = $_SESSION['total'];            // get total from session (refer to shop
 $select_cart = mysqli_query($conn, "SELECT * FROM `cart`");   //select item from cart  
 $result = mysqli_fetch_assoc($select_cart);     //fetch information about cart from database
 
-if (isset($_POST['update_update_btn'])) {       // INCOMPLETE CODE; what it should do is, once update button is pressed, it would deduct the quantity bought from stocks
+if (isset($_POST['update_update_btn'])) {       // INCOMPLETE CODE; what it should do is, once update button is pressed, it would deduct the stocks with the quantity bought
     $select_cart = mysqli_query($conn, "SELECT * FROM `cart`");
     $result = mysqli_fetch_assoc($select_cart);
     $update_stocks = $_POST['update_quantity'];
@@ -46,7 +46,7 @@ if (isset($_POST['update_update_btn'])) {       // INCOMPLETE CODE; what it shou
         <h4 class="alert-heading">Well done!</h4>
         <p> You are now ₱<?php echo number_format($total)?> in debt!</p> <!-- prints the total stored from session (refer to $total from shoppingcart) -->
         <hr>
-        <?php // prints out the items from cart if the number of rows are greater than 0 
+        <?php // prints out the items from cart if the number of rows are greater than 0. Basically, it displays an item if there is an item present in the database. If not, it woudl display nothing.
         $select_cart = mysqli_query($conn, "SELECT * FROM `cart`");
         if (mysqli_num_rows($select_cart) > 0) {
                     while ($result = mysqli_fetch_assoc($select_cart)) {    //fetches information about the cart from database. $result['any column in ur database'] can now be used to display sht from ur database
