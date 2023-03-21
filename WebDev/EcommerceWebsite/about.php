@@ -1,4 +1,5 @@
-<?php                                  // use word-wrap if possible              
+<?php                                  // use word-wrap if possible
+                                       // disclaimer: comments are made with my knowledge so they might be or might not be correct. ehe              
 session_start();                       // start session of user (should be mandatory if u want to display the names of ur user in the heading or if u are storing variables into ur session)
 include ("db_connection.php");         // connects to database 
 if (isset($_SESSION["user_id"])) {     // checks if "user_id" is set (refer to login.php)
