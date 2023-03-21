@@ -1,14 +1,13 @@
 <?php
 include("db_connection.php");
 	if(isset($_POST['submit'])) {
-		
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		$address = $_POST['address'];
 		$city = $_POST['city'];
     	$username = $_POST['username'];
     	$password = $_POST['password'];
-		$hashpassword = password_hash($password, PASSWORD_DEFAULT);
+		$hashpassword = password_hash($password, PASSWORD_DEFAULT); //hashing the password is a good idea cuz eh
 		$sql = "INSERT INTO loginTable (firstname, lastname, address, city, username, password) VALUES ('$firstname', '$lastname', '$address', '$city', '$username', '$hashpassword')";
 		$result = mysqli_query($conn, $sql);
 

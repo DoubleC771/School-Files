@@ -1,7 +1,7 @@
-<?php
-session_start();
+<?php                            // skip this page as most explanations are in about.php
+session_start();                 // comments are more or less the same with about.php
+include ("db_connection.php");
 if (isset($_SESSION["user_id"])) {
-   include ("db_connection.php");
    $sql = "SELECT * FROM `logintable` WHERE CustomerID = {$_SESSION["user_id"]}";
    $result = $conn->query($sql);
    $user = $result->fetch_assoc();
@@ -16,37 +16,29 @@ $cart_count = mysqli_num_rows($select_rows);
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <!-- basic -->
+      <!-- stylesheeeeets useeeeeed for da website -->
+      <title>Contact</title>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- mobile metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>Cycle</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
-      <!-- bootstrap css -->
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      <!-- style css -->
       <link rel="stylesheet" type="text/css" href="css/style.css">
-      <!-- Responsive-->
       <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
       <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <!-- owl stylesheets --> 
       <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700,800&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesoeet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
    </head>
    <body>
+      <!-- nav bar of da website -->
         <div class="header_section header_bg">
          <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a href="index.php" class="logo"><img src="images/logo2.png"></a>
@@ -71,6 +63,7 @@ $cart_count = mysqli_num_rows($select_rows);
                <form class="form-inline my-2 my-lg-0">
                   <div class="login_menu">
                      <ul>
+                        <!-- refer to about.php on why dis sht won't work -->
                      <?php if ($user['UserType'] == 1): ?>
                            <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php">Logout</a></li>
@@ -88,6 +81,7 @@ $cart_count = mysqli_num_rows($select_rows);
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"></a></li>
                            <li><a href="#"><img src="images/search-icon-black.png"></a></li>
                      <?php endif; ?>
+                     <!-- end of checking usertype -->
                         </ul>
                   </div>
                   <div></div>
@@ -97,6 +91,7 @@ $cart_count = mysqli_num_rows($select_rows);
                <span style="font-size:36px;cursor:pointer; color: #fff" onclick="openNav()"><img src="images/toggle-icon.png" style="height: 30px;"></span>
             </div>
          </nav>
+         <!-- end of navbarrrrr -->
            <!-- banner section start -->
          <div class="banner_section layout_padding">
             <div id="main_slider" class="carousel slide" data-ride="carousel">

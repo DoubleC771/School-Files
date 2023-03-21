@@ -1,6 +1,6 @@
-<?php
+<?php                                 // this page is only accessible to those who have access to display.php i.e. (admins)
 include("db_connection.php");
-if(isset($_POST['submit'])) {
+if(isset($_POST['submit'])) {         // if user (or admin in this case) presses the 'submit' button, it would push these values into the database
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		$address = $_POST['address'];
@@ -22,7 +22,7 @@ if(isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 <head>
-	<title>PHP Form</title>
+	<title>Create User</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel = "stylesheet" href = "style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -75,7 +75,7 @@ if(isset($_POST['submit'])) {
   <tr>
 		<td> 
       <a href = 'display.php?' class='btn btn-success'> Back </a>	
-      <input type="submit" name="submit" value="Submit" class = "btn btn-primary">
+      <input type="submit" name="submit" value="Submit" class = "btn btn-primary"> <!-- has a submit value to pass to php -->
       </div>		
 		</td>
 	</tr> 

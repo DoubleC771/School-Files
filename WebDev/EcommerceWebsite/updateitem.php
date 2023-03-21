@@ -1,4 +1,4 @@
-<?php
+<?php                           //page for updating items, 
 include("db_connection.php");
 
 $id = $_GET['updateid'];
@@ -6,9 +6,9 @@ $id = $_GET['updateid'];
 if(isset($_POST['submit'])) {
 		$bikename = $_POST['bikename'];
 		$image = $_POST['Image'];
-        $price = $_POST['Price'];
-        $description = $_POST['Description'];
-        $stocks = $_POST['Stocks'];
+    $price = $_POST['Price'];
+    $description = $_POST['Description'];
+    $stocks = $_POST['Stocks'];
 		$sql = "UPDATE `bikeorder` SET `OrderID`='$id',`BikeName`='$bikename',`Image`='$image',`Price`='$price',`Description`='$description',`Stocks`='$stocks' WHERE `OrderID` = '$id'";
 		if (mysqli_query($conn, $sql)) {
 			header('location: display.php');
