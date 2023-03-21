@@ -4,7 +4,7 @@ session_start();                       // start session of user (should be manda
 include ("db_connection.php");         // connects to database 
 if (isset($_SESSION["user_id"])) {     // checks if "user_id" is set (refer to login.php)
    $sql = "SELECT * FROM `logintable` WHERE `CustomerID` = {$_SESSION["user_id"]}";                                  
-   $result = $conn->query($sql);       // if set, it will 
+   $result = $conn->query($sql);       // if set, it will fetch the user's id from the database
    $user = $result->fetch_assoc();
    $admin = $user['UserType'] == 1;    // if user's usertype from db is 1 then he is an admin
    $norm = $user['UserType'] == 0;
