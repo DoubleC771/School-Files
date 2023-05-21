@@ -16,39 +16,28 @@ $cart_count = mysqli_num_rows($select_rows);
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <!-- basic -->
+      <title>Profile</title>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- mobile metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>Cycle</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
       <link rel="stylesheet" type="text/css" href="myaccount.css">
-      <!-- bootstrap css -->
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      <!-- style css -->
       <link rel="stylesheet" type="text/css" href="css/style.css">
-      <!-- Responsive-->
       <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
       <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <!-- owl stylesheets --> 
       <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700,800&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesoeet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <meta charset="utf-8">
 	   <meta name="viewport" content="width=device-width, initial-scale=1">
-	   <title>Profile</title>
 	   <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
 	   <link rel="stylesheet" type="text/css" href="./css/bootstrap-icons.css">
    </head>
@@ -113,6 +102,7 @@ $cart_count = mysqli_num_rows($select_rows);
 
    <div class="row col-lg-8 border rounded mx-auto mt-5 p-2 shadow-lg">
 			<div class="col-md-4 text-center">
+            <!-- get_image is a function from db_connection. It is called to verify or get the user's image. If found, it would display the image. If not, it refers to the 'empty', 'blank' or the default image -->
             <img src="<?=get_image($user['Image'])?>" class="img-fluid rounded" style="width: 180px;height:180px;object-fit: cover;">
          <div>
                   <a href="update.php?updateid=<?php echo $user['CustomerID']?>">

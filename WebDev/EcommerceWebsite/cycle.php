@@ -1,5 +1,5 @@
-<?php 
-session_start();
+<?php                               // this page showcases the items inputted from the database
+session_start();                    
 include ("db_connection.php");
 if (isset($_SESSION["user_id"])) {
    $sql = "SELECT * FROM `logintable` WHERE CustomerID = {$_SESSION["user_id"]}";
@@ -9,17 +9,21 @@ if (isset($_SESSION["user_id"])) {
    $norm = $user['UserType'] == 0;
 }
 
-if (isset($_POST['add_to_cart'])) {
+if (isset($_POST['add_to_cart'])) {       // if user presses the 'add to cart' button on any item, it would execute this
 
-   $product_name = $_POST['product_name'];
+   // Basically, this sht was yoinked from the hidden input types to get the name, price, and image of the items added to cart. [Long ver: Use hidden types to get the values of the items stored from ITEM DATABASE, and store those into variables. After which, we forward these variables into the CART DATABASE to update da CAAAAAAAAAAARTTTT] 
+   $product_name = $_POST['product_name'];  
    $product_price = $_POST['product_price'];
    $product_image = $_POST['product_image'];
    $product_quantity = 1;
 
+   // connect to the cart database and sync BikeName column of cart to the ones put into the cart
    $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE `BikeName` = '$product_name'");
 
+   // put the values above into the cart table
    $sql = "INSERT INTO cart (BikeName, Price, Image, Quantity) VALUES ('$product_name', '$product_price', '$product_image', '$product_quantity')";
 
+   // if there is more than one instance of a specific item, it would display that there is a duplicate of the item.
    if (mysqli_num_rows($select_cart) > 0) {
       echo '<div class="alert alert-danger" role="alert">
       Product already in cart! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -27,6 +31,7 @@ if (isset($_POST['add_to_cart'])) {
     </button>
     </div>';
    } else {
+      // if item is successfully added then yea, execute dis sht
       $result = mysqli_query($conn, $sql);
       echo '<div class="alert alert-success" role="alert">
       Product successfully added to Cart! <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -43,37 +48,29 @@ $cart_count = mysqli_num_rows($select_rows);
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <!-- basic -->
+      <!-- style shits -->
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- mobile metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
       <title>Cycle</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
-      <!-- bootstrap css -->
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      <!-- style css -->
       <link rel="stylesheet" type="text/css" href="css/style.css">
-      <!-- Responsive-->
       <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
       <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <!-- owl stylesheets --> 
       <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700,800&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="css/owl.carousel.min.css">
       <link rel="stylesoeet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
    </head>
    <body>
+      <!-- navbar boi -->
         <div class="header_section header_bg">
          <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a href="index.php" class="logo"><img src="images/logo2.png"></a>
@@ -125,6 +122,7 @@ $cart_count = mysqli_num_rows($select_rows);
                <span style="font-size:36px;cursor:pointer; color: #fff" onclick="openNav()"><img src="images/toggle-icon.png" style="height: 30px;"></span>
             </div>
          </nav>
+         <!-- end of navbar-->
             <!-- banner section start -->
          <div class="banner_section layout_padding">
             <div id="main_slider" class="carousel slide" data-ride="carousel">
@@ -253,12 +251,14 @@ $cart_count = mysqli_num_rows($select_rows);
    </div>
    <div class = "container">
         <h1 align = "center"> All Bike Models </h1> <br>
+        <!-- display all items from database-->
         <?php 
             $query = "SELECT * FROM `bikeorder` ORDER by `OrderID` ASC";
             $result = mysqli_query($conn, $query);
-
+            
+            // if there is an item then it would execute this
             if (mysqli_num_rows($result) > 0 ) {
-                while ($row = mysqli_fetch_array($result)) {
+                while ($row = mysqli_fetch_array($result)) { // fetch items from database
                     ?>
                         <form action = "" method = "post">
                            <div class = "card-deck">
@@ -273,6 +273,7 @@ $cart_count = mysqli_num_rows($select_rows);
                                  <input type="hidden" name = "product_price" value = "<?php echo $row["Price"]; ?>">
                                  <input type="hidden" name = "product_image" value = "<?php echo $row["Image"]; ?>">
                                  <input type ="submit" class = "btn btn-primary" value = "Add to Cart" name = "add_to_cart">
+                                 <!-- we use hidden input types to get the values from another database. After which, we will be able to store those into variables to store these variables to a diff database -->
                               </div>
                               </div>
                            </div>

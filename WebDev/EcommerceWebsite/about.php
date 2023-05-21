@@ -1,11 +1,12 @@
-<?php
-session_start();
-include ("db_connection.php");
-if (isset($_SESSION["user_id"])) {
-   $sql = "SELECT * FROM `logintable` WHERE `CustomerID` = {$_SESSION["user_id"]}";
-   $result = $conn->query($sql);
+<?php                                  // use word-wrap if possible
+                                       // disclaimer: comments are made with my knowledge so they might be or might not be correct. ehe              
+session_start();                       // start session of user (should be mandatory if u want to display the names of ur user in the heading or if u are storing variables into ur session)
+include ("db_connection.php");         // connects to database 
+if (isset($_SESSION["user_id"])) {     // checks if "user_id" is set (refer to login.php)
+   $sql = "SELECT * FROM `logintable` WHERE `CustomerID` = {$_SESSION["user_id"]}";                                  
+   $result = $conn->query($sql);       // if set, it will fetch the user's id from the database
    $user = $result->fetch_assoc();
-   $admin = $user['UserType'] == 1;
+   $admin = $user['UserType'] == 1;    // if user's usertype from db is 1 then he is an admin
    $norm = $user['UserType'] == 0;
 } 
 $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
@@ -15,38 +16,28 @@ $cart_count = mysqli_num_rows($select_rows);
 <html>
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <!-- basic -->
+   <head> <!-- stylesheeeeeets used -->
+      <title>Cycle</title>
       <meta charset="utf-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- mobile metas -->
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>Cycle</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
-      <!-- bootstrap css -->
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <!-- Responsive-->
       <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
       <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <!-- owl stylesheets --> 
       <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700,800&display=swap" rel="stylesheet">
       <link rel="stylesheet" href="css/owl.carousel.min.css">
-      <link rel="stylesoeet" href="css/owl.theme.default.min.css">
+      <link rel="stylesheet" href="css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
    </head>
    <body>
+      <!-- header of website -->
         <div class="header_section header_bg">
          <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a href="index.php" class="logo"><img src="images/logo2.png"></a>
@@ -72,23 +63,28 @@ $cart_count = mysqli_num_rows($select_rows);
                <form class="form-inline my-2 my-lg-0">
                   <div class="login_menu">
                      <ul>
+                        <!-- DO NOT COPY, SHIT DOES NOT WORK -->
+                        <!-- what it does is display myaccount page, shoppingcart number, and admin page -->
+                        <!-- if user is an admin -->
                      <?php if ($_SESSION['UserType'] == 1): ?>
                            <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php">Logout</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
                            <li><a href="#"><img src="images/search-icon.png"></a></li>
                            <li><a href="display.php">Admin</a></li>
-                     <?php elseif ($norm): ?>
+                     <?php elseif ($norm): ?>             <!-- will display only the myaccount page if the user is, well, a user -->              
                            <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php">Logout</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
                            <li><a href="#"><img src="images/search-icon.png"></a></li>
-                     <?php elseif (!isset($user)): ?>
+                     <?php elseif (!isset($user)): ?>          <!-- dis one is br0ke, it returns a warning if user is not logged in-->
                            <li><a href="login.php">Login</a></li>
                            <li><a href="signup.php ">Sign Up</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"></a></li>
                            <li><a href="#"><img src="images/search-icon-black.png"></a></li>
                      <?php endif; ?>
+                        <!-- DO NOT COPY, SHIT DOES NOT WORK -->
+                        <!-- end of checking user's usertype -->
                      </ul>
                   </div>
                   <div></div>
@@ -98,6 +94,7 @@ $cart_count = mysqli_num_rows($select_rows);
                <span style="font-size:36px;cursor:pointer; color: #fff" onclick="openNav()"><img src="images/toggle-icon.png" style="height: 30px;"></span>
             </div>
          </nav>
+         <!-- end of header -->
           <!-- banner section start -->
           <div class="banner_section layout_padding">
             <div id="main_slider" class="carousel slide" data-ride="carousel">

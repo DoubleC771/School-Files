@@ -1,5 +1,5 @@
 <?php 
-$is_invalid = false;
+$is_invalid = false; //will be used later on to display an error message if either or both inputs are incorrect
 include("db_connection.php");
    if ($_SERVER["REQUEST_METHOD"] === "POST") {
       $sql = sprintf("SELECT * FROM logintable WHERE username = '%s'", 
@@ -10,14 +10,15 @@ include("db_connection.php");
       $user = $result->fetch_assoc();
       $pass = $_POST['password'];
       if ($user) {
-         if (password_verify($pass, $user['password'])) {
+         if (password_verify($pass, $user['password'])) { // password_verify as the password taken from the database is hashed. if password is not hashed, u can use: password(posted by the user or inputted) == password(from the database)
             session_start();
             session_regenerate_id();
-            $_SESSION["user_id"] = $user["CustomerID"];
+            $_SESSION["user_id"] = $user["CustomerID"]; //sets the current user's user id to be the same as the one registered in the database
             header("location: index.php");
             exit;
+            //$is_invalid is false here once the user has successfully inputted the correct username and pass
       } 
-   } 
+   } // $is_invalid is true once the user has inputted the wrong username and pass
    $is_invalid = true;
 }
 ?>
@@ -45,7 +46,7 @@ include("db_connection.php");
     <div class="row col-md-4 border rounded mx-auto mt-5 p-4 shadow">
 			
 			<div class="h2">Login</div>
-      <?php 
+      <?php // if $is_invalid is true then it would display the error in the following line after (?'>)
          if ($is_invalid):
       ?>
       <em style = "color:red">Invalid Login</em>

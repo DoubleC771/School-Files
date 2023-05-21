@@ -9,16 +9,16 @@ if (isset($_SESSION["user_id"])) {
    $norm = $user['UserType'] == 0;
 }
 
-if (isset($_POST['update_update_btn'])) {
-    $update_quantity = $_POST['update_quantity'];
-    $update_id = $_POST['update_quantity_id'];
+if (isset($_POST['update_update_btn'])) { //update button is used to update the quantity of the item 
+    $update_quantity = $_POST['update_quantity']; //yoinked from hidden input types (same principle as the one present in cycle.php but instead of inserting variables into the database, we update the contents instead) yoink to store into variables, use said variables to update the contents of the database 
+    $update_id = $_POST['update_quantity_id']; //yoinked too from hidden input types
     $updatequery = mysqli_query($conn, "UPDATE `cart` SET `Quantity` = '$update_quantity' WHERE `OrderID` = '$update_id'");
     if ($updatequery) {
         header('location:shoppingcart.php');
     }
 }
 
-if (isset($_GET['removeid'])) {
+if (isset($_GET['removeid'])) { //similar to the ones present in the admin panel (refer to display.php)
     $id = $_GET['removeid'];
 
     $sql = "DELETE FROM `cart` where `OrderID`=$id";
@@ -31,7 +31,7 @@ if (isset($_GET['removeid'])) {
     }
 }
 
-if (isset($_GET['delete_all'])) {
+if (isset($_GET['delete_all'])) { //deleteeee everything from caaaaarrrrtttt
     $id = $_GET['delete_all'];
 
     $sql = "DELETE FROM `cart`";
@@ -48,45 +48,33 @@ $cart_count = mysqli_num_rows($select_rows);
 ?>
 <!DOCTYPE html>
     <head>
-	<title> Shopping Cart </title>
+      <!-- holee fk laba2 -->
+	   <title> Shopping Cart </title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <link rel = "stylesheet" href = "style.css">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;600&display=swap" rel="stylesheet"> 
         <link rel="preconnect" href="https://fonts.googleapis.com">
+        <meta charset="utf-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+         <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+         <meta name="keywords" content="">
+         <meta name="description" content="">
+         <meta name="author" content="">
+         <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+         <link rel="stylesheet" type="text/css" href="css/style.css">
+         <link rel="stylesheet" href="css/responsive.css">
+         <link rel="icon" href="images/fevicon.png" type="image/gif" />
+         <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+         <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700,800&display=swap" rel="stylesheet">
+         <link rel="stylesheet" href="css/owl.carousel.min.css">
+         <link rel="stylesoeet" href="css/owl.theme.default.min.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
     </head>
     <body>
-    <head>
-      <!-- basic -->
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <!-- mobile metas -->
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-      <!-- site metas -->
-      <title>Cycle</title>
-      <meta name="keywords" content="">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <!-- bootstrap css -->
-      <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
-      <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
-      <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
-      <!-- Tweaks for older IEs-->
-      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <!-- owl stylesheets --> 
-      <link href="https://fonts.googleapis.com/css?family=Poppins:400,700|Raleway:400,700,800&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="css/owl.carousel.min.css">
-      <link rel="stylesoeet" href="css/owl.theme.default.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-   </head>
    <body>
       <!-- header section start -->
       <div class="header_section header_bg">
@@ -153,7 +141,7 @@ $cart_count = mysqli_num_rows($select_rows);
                 <th scope = "col"> Action </th>
             </thead>
             <tbody>
-                <?php 
+                <?php //display sht from cart database
                 $select_cart = mysqli_query($conn, "SELECT * FROM `cart`");
                 $total = 0;
                 $subtotal = 0;
@@ -164,19 +152,22 @@ $cart_count = mysqli_num_rows($select_rows);
                 <tr>
                     <td> <img src = "ShoppingImages/<?php echo $result['Image']; ?>" </td>
                     <td> <?php echo $result['BikeName']; ?> </td>
+                    <!-- we use number format here to display the numbers with commas so instead of displaying '14000' it would display '14,000' instead -->
                     <td> ₱<?php echo number_format($result['Price']); ?> </td>
                     <td> 
                         <form action = "" method = "post">
                             <input type = "hidden" name = "update_quantity_id" value = "<?php echo $result['OrderID']; ?> ">
                             <input type = "number" class = "form-control" id = "typeNumber" name = "update_quantity" min = "1" value = "<?php echo $result['Quantity']; ?>">
                             <input type = "submit" value = "Update" name = "update_update_btn" class = "btn btn-secondary">
+                            <!-- we use hidden input types to get the values from another database. After which, we will be able to store those into variables to store these variables to a diff database -->
                         </form>
                     </td>
-                    <td>₱<?php echo number_format($subtotal = (int)$result['Price'] * (int)$result['Quantity']); ?></td>
+                    <td>₱<?php echo number_format($subtotal = (int)$result['Price'] * (int)$result['Quantity']); ?></td> <!--needs int here as we are adding here-->
                     <td><a href = 'shoppingcart.php?removeid=<?php echo $result['OrderID']; ?>' onclick ="return confirm('Remove item from cart?')" class = "btn btn-warning">Remove</a></td>
+                    <!--get removeid to specify which item in the cart should be removed-->
                 </tr>
 
-                <?php 
+                <?php //adds all the subtotal found so far into $total
                     $total += ($subtotal);
                     };
                 } else {
@@ -184,7 +175,7 @@ $cart_count = mysqli_num_rows($select_rows);
                     <tr>
 						<td> No results. </td>
 					</tr>";
-                };
+                }; //stores the $total into the session which we will be able to access later on
                 $_SESSION['total'] = $total ?>
                 <tr>
                     <td><a href = "shop.php" class = "btn btn-info"> Continue Shopping? </td>
@@ -196,7 +187,7 @@ $cart_count = mysqli_num_rows($select_rows);
             </tbody>
         </table>
         <div class="d-grid gap-2 col-6 mx-auto">
-        <a href = "checkout.php" class = "btn btn-outline-primary" style ="margin-bottom: 5rem">Checkout</a>
+        <a href = "checkout.php" class = "btn btn-outline-primary" style ="margin-bottom: 5rem">Checkout</a> <!-- checkout is not working yeeeeeet -->
       </div>
     </div>
         <div class="footer_section layout_padding">

@@ -1,7 +1,7 @@
-<?php
+<?php								//update a user's profile
 include("db_connection.php");
 
-$id = $_GET['updateid'];
+$id = $_GET['updateid']; 			//get a user's id from display.php
 
 session_start();
 if (isset($_SESSION["user_id"])) {
@@ -11,7 +11,7 @@ if (isset($_SESSION["user_id"])) {
 }
 
 
-if(isset($_POST['submit'])) {
+if(isset($_POST['submit'])) {				// if submit button is pressed then
 		$firstname = $_POST['firstname'];
 		$lastname = $_POST['lastname'];
 		$address = $_POST['address'];
@@ -34,7 +34,8 @@ if(isset($_POST['submit'])) {
 <!DOCTYPE html>
 <html>
 <head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+	<title>Edit Profile</title>
+  	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel = "stylesheet" href = "style.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,7 +43,6 @@ if(isset($_POST['submit'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Edit Profile</title>
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="./css/bootstrap-icons.css">
 </head>
@@ -55,6 +55,7 @@ if(isset($_POST['submit'])) {
 				<div>
 					<div class="mb-3">
 					  <label for="formFile" class="form-label">Click below to select an image</label>
+					  <!-- does not work yet -->
 					  <input name = "Image" onchange="display_image(this.files[0])" class="js-image-input form-control" type="file" id="formFile">
 					</div>
 					<div><small class="js-error js-error-image text-danger"></small></div>
@@ -69,6 +70,7 @@ if(isset($_POST['submit'])) {
 						<tr><th colspan="2">User Details:</th></tr>
 						<tr><th><i class="bi bi-person-circle"></i> First Name</th>
 							<td>
+								<!-- value is present here to display the past version of the user's info such as his/her firstname and the such so dat it would be easier to update -->
 								<input value="<?=$user['firstname']?>" type="text" class="form-control" name="firstname" placeholder="First Name">
 								<div><small class="js-error js-error-email text-danger"></small></div>
 							</td>
@@ -103,7 +105,7 @@ if(isset($_POST['submit'])) {
 						</tr>
 					</table>
 					<div class="form-check">
-      <?php if ($user['UserType'] == 1): ?>
+      <?php if ($user['UserType'] == 1): ?> <!-- displays the following html elements if the user is an admin. If not, it would not display dis shet-->
 		<select name="usertype" class="form-select form-select mb-3" aria-label=".form-select-lg example">
 								  <option value="">--Select Usertype--</option>	
 								  <option value="0">Admin</option>
@@ -118,7 +120,7 @@ if(isset($_POST['submit'])) {
 					</div>
 
 					<div class="p-2">
-						
+						<!-- submit button ere -->
 						<button class="btn btn-primary float-end" name = "submit" value = "submit" type = "submit">Save</button>
 						
 						<a href="index.php">

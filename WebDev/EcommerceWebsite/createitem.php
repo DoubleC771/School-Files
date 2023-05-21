@@ -1,6 +1,6 @@
 <?php
-include("db_connection.php");
-if(isset($_POST['submit'])) {
+include("db_connection.php");             // similar to create.php but this page is for items (in our case, it was used for bicycles)
+if(isset($_POST['submit'])) {             // if user (or admin in this case) presses the 'submit' button, it would push these values into the database
 		$bikename = $_POST['bikename'];
 		$image = $_POST['Image'];
     $price = $_POST['Price'];
