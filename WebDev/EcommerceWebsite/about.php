@@ -27,6 +27,7 @@ $cart_count = mysqli_num_rows($select_rows);
       <meta name="description" content="">
       <meta name="author" content="">
       <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+      <link rel="stylesheet" type="text/css" href="css/style.css">
       <link rel="stylesheet" href="css/responsive.css">
       <link rel="icon" href="images/fevicon.png" type="image/gif" />
       <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
@@ -38,7 +39,7 @@ $cart_count = mysqli_num_rows($select_rows);
    </head>
    <body>
       <!-- header of website -->
-        <div class="header_section header_bg">
+      <div class="header_section header_bg">
          <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a href="index.php" class="logo"><img src="images/logo2.png"></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,7 +56,6 @@ $cart_count = mysqli_num_rows($select_rows);
                   <li class="nav-item">
                      <a class="nav-link" href="cycle.php">Our Cycle</a>
                   </li>
-
                   <li class="nav-item">
                      <a class="nav-link" href="contact.php">Contact Us</a>
                   </li>
@@ -63,29 +63,26 @@ $cart_count = mysqli_num_rows($select_rows);
                <form class="form-inline my-2 my-lg-0">
                   <div class="login_menu">
                      <ul>
-                        <!-- DO NOT COPY, SHIT DOES NOT WORK -->
-                        <!-- what it does is display myaccount page, shoppingcart number, and admin page -->
-                        <!-- if user is an admin -->
-                     <?php if ($_SESSION['UserType'] == 1): ?>
+                        <!-- refer to about.php on why dis sht won't work -->
+                     <?php if ($user['UserType'] == 1): ?>
                            <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php">Logout</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
                            <li><a href="#"><img src="images/search-icon.png"></a></li>
                            <li><a href="display.php">Admin</a></li>
-                     <?php elseif ($norm): ?>             <!-- will display only the myaccount page if the user is, well, a user -->              
+                     <?php elseif ($norm): ?>
                            <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php">Logout</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
                            <li><a href="#"><img src="images/search-icon.png"></a></li>
-                     <?php elseif (!isset($user)): ?>          <!-- dis one is br0ke, it returns a warning if user is not logged in-->
+                     <?php elseif (!isset($user)): ?>
                            <li><a href="login.php">Login</a></li>
                            <li><a href="signup.php ">Sign Up</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"></a></li>
                            <li><a href="#"><img src="images/search-icon-black.png"></a></li>
                      <?php endif; ?>
-                        <!-- DO NOT COPY, SHIT DOES NOT WORK -->
-                        <!-- end of checking user's usertype -->
-                     </ul>
+                     <!-- end of checking usertype -->
+                        </ul>
                   </div>
                   <div></div>
                </form>
