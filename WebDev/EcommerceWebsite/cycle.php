@@ -96,14 +96,18 @@ $cart_count = mysqli_num_rows($select_rows);
                <form class="form-inline my-2 my-lg-0">
                   <div class="login_menu">
                      <ul>
-                     <?php if ($user['UserType'] == 1): ?>
+                     <?php if (isset($user) &&$user['UserType'] == 1): ?>
                            <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php">Logout</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
                            <li><a href="#"><img src="images/search-icon.png"></a></li>
                            <li><a href="display.php">Admin</a></li>
+<<<<<<< HEAD
                            <li><a href="sales.php">Sales Report</a></li>
                      <?php elseif ($norm): ?>
+=======
+                     <?php elseif (isset($norm) && $norm): ?>
+>>>>>>> f7a5f978e4b6649688c5d76d5890f1fa15a3794a
                            <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php">Logout</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
