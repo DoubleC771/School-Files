@@ -49,7 +49,7 @@ $cart_count = mysqli_num_rows($select_rows);
 <!DOCTYPE html>
     <head>
       <!-- holee fk laba2 -->
-	   <title> Shopping Cart </title>
+	   <title> Sales Report </title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
         <link rel = "stylesheet" href = "style.css">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -108,6 +108,7 @@ $cart_count = mysqli_num_rows($select_rows);
                            <li><a href="shoppingcart.php"style = "color:black"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
                            <li><a href="#"style = "color:black"><img src="images/search-icon.png"></a></li>
                            <li><a href="display.php" style = "color:black">Admin</a></li>
+                           <li><a href="sales.php">Sales Report</a></li>
                      <?php elseif ($norm): ?>
                            <li><a href="myaccount.php"style = "color:black"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php"style = "color:black">Logout</a></li>
@@ -130,41 +131,37 @@ $cart_count = mysqli_num_rows($select_rows);
          </nav>
       </div>
     <div class = "container">
-        <h1 align = "center"> Shopping Cart </h1> <br>
+        <h1 align = "center"> Sales Report </h1> <br>
         <table class="table table-hover">
             <thead class="table-success">
+                <th scope = "col"> SalesID </th>
                 <th scope = "col"> Image </th>
                 <th scope = "col"> Bike Name </th>
                 <th scope = "col"> Price </th>
                 <th scope = "col"> Quantity </th>
+                <th scope = "col"> Date </th>
+                <th scope = "col"> Time </th>
                 <th scope = "col"> Total </th>
-                <th scope = "col"> Action </th>
             </thead>
             <tbody>
                 <?php //display sht from cart database
-                $select_cart = mysqli_query($conn, "SELECT * FROM `cart`");
+                $select_salesreport = mysqli_query($conn, "SELECT * FROM `salesreport`");
                 $total = 0;
                 $subtotal = 0;
-                if (mysqli_num_rows($select_cart) > 0) {
-                    while ($result = mysqli_fetch_assoc($select_cart)) {
+                if (mysqli_num_rows($select_salesreport) > 0) {
+                    while ($result = mysqli_fetch_assoc($select_salesreport)) {
                 ?>
 
                 <tr>
+                    <td> <?php echo $result['SalesID']; ?> </td>
                     <td> <img src = "ShoppingImages/<?php echo $result['Image']; ?>" </td>
                     <td> <?php echo $result['BikeName']; ?> </td>
                     <!-- we use number format here to display the numbers with commas so instead of displaying '14000' it would display '14,000' instead -->
                     <td> ₱<?php echo number_format($result['Price']); ?> </td>
-                    <td> 
-                        <form action = "" method = "post">
-                            <input type = "hidden" name = "update_quantity_id" value = "<?php echo $result['OrderID']; ?> ">
-                            <input type = "number" class = "form-control" id = "typeNumber" name = "update_quantity" min = "1" value = "<?php echo $result['Quantity']; ?>">
-                            <input type = "submit" value = "Update" name = "update_update_btn" class = "btn btn-secondary">
-                            <!-- we use hidden input types to get the values from another database. After which, we will be able to store those into variables to store these variables to a diff database -->
-                        </form>
-                    </td>
+                    <td> <?php echo $result['Quantity']; ?> </td>
+                    <td> <?php echo $result['date']; ?> </td>
+                    <td> <?php echo $result['time']; ?> </td>
                     <td>₱<?php echo number_format($subtotal = (int)$result['Price'] * (int)$result['Quantity']); ?></td> <!--needs int here as we are adding here-->
-                    <td><a href = 'shoppingcart.php?removeid=<?php echo $result['OrderID']; ?>' onclick ="return confirm('Remove item from cart?')" class = "btn btn-warning">Remove</a></td>
-                    <!--get removeid to specify which item in the cart should be removed-->
                 </tr>
 
                 <?php //adds all the subtotal found so far into $total
@@ -178,16 +175,17 @@ $cart_count = mysqli_num_rows($select_rows);
                 }; //stores the $total into the session which we will be able to access later on
                 $_SESSION['total'] = $total ?>
                 <tr>
-                    <td><a href = "shop.php" class = "btn btn-info"> Continue Shopping? </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
                     <td colspan = "3">Grand Total</td>
                     <td> ₱<?php echo number_format($total); ?> </td>
-                    <td> <a href = "shoppingcart.php?delete_all" onclick ="return confirm('Remove all items from the cart?')" class = "btn btn-danger">Remove all</a></td>
+                    <td></td>
                 </tr>
-
             </tbody>
         </table>
         <div class="d-grid gap-2 col-6 mx-auto">
-        <a href = "checkout.php" class = "btn btn-outline-primary" style ="margin-bottom: 5rem">Checkout</a> <!-- checkout is not working yeeeeeet -->
       </div>
     </div>
         <div class="footer_section layout_padding">
@@ -251,6 +249,16 @@ $cart_count = mysqli_num_rows($select_rows);
          $("#main").click(function(){
              $("#navbarSupportedContent").toggleClass("nav-normal")
          })
+         var d = new Date();
+
+        // Set the value of the "date" field
+            document.getElementById("date").value = d.toDateString();
+
+        // Set the value of the "time" field
+            var hours = d.getHours();
+            var mins = d.getMinutes();
+            var seconds = d.getSeconds();
+            document.getElementById("time").value = hours + ":" + mins + ":" + seconds;
       </script>
     </body>
 </html>

@@ -108,6 +108,7 @@ $cart_count = mysqli_num_rows($select_rows);
                            <li><a href="shoppingcart.php"style = "color:black"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
                            <li><a href="#"style = "color:black"><img src="images/search-icon.png"></a></li>
                            <li><a href="display.php" style = "color:black">Admin</a></li>
+                           <li><a href="sales.php">Sales Report</a></li>
                      <?php elseif ($norm): ?>
                            <li><a href="myaccount.php"style = "color:black"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php"style = "color:black">Logout</a></li>
@@ -178,7 +179,7 @@ $cart_count = mysqli_num_rows($select_rows);
                 }; //stores the $total into the session which we will be able to access later on
                 $_SESSION['total'] = $total ?>
                 <tr>
-                    <td><a href = "shop.php" class = "btn btn-info"> Continue Shopping? </td>
+                    <td><a href = "cycle.php" class = "btn btn-info"> Continue Shopping? </td>
                     <td colspan = "3">Grand Total</td>
                     <td> ₱<?php echo number_format($total); ?> </td>
                     <td> <a href = "shoppingcart.php?delete_all" onclick ="return confirm('Remove all items from the cart?')" class = "btn btn-danger">Remove all</a></td>

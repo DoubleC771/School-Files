@@ -70,6 +70,7 @@ $cart_count = mysqli_num_rows($select_rows);
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
                            <li><a href="#"><img src="images/search-icon.png"></a></li>
                            <li><a href="display.php">Admin</a></li>
+                           <li><a href="sales.php">Sales Report</a></li>
                      <?php elseif ($norm): ?>
                            <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php">Logout</a></li>
