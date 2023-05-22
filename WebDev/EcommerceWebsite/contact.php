@@ -64,13 +64,13 @@ $cart_count = mysqli_num_rows($select_rows);
                   <div class="login_menu">
                      <ul>
                         <!-- refer to about.php on why dis sht won't work -->
-                     <?php if ($user['UserType'] == 1): ?>
+                     <?php if (isset($user) && $user['UserType'] == 1): ?>
                            <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php">Logout</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
                            <li><a href="#"><img src="images/search-icon.png"></a></li>
                            <li><a href="display.php">Admin</a></li>
-                     <?php elseif ($norm): ?>
+                     <?php elseif (isset($norm) &&$norm): ?>
                            <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php">Logout</a></li>
                            <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
