@@ -109,12 +109,12 @@ $cart_count = mysqli_num_rows($select_rows);
                            <li><a href="#"style = "color:black"><img src="images/search-icon.png"></a></li>
                            <li><a href="display.php" style = "color:black">Admin</a></li>
                            <li><a href="sales.php">Sales Report</a></li>
-                     <?php elseif ($norm): ?>
+                     <?php elseif (isset($norm) && $norm): ?>
                            <li><a href="myaccount.php"style = "color:black"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php"style = "color:black">Logout</a></li>
                            <li><a href="shoppingcart.php"style = "color:black"><img src="images/trolly-icon-black.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
                            <li><a href="#"style = "color:black"><img src="images/search-icon-black.png"></a></li>
-                     <?php elseif (!isset($user)): ?>
+                     <?php elseif (!isset($user)): session_unset()?>
                            <li><a href="login.php"style = "color:black">Login</a></li>
                            <li><a href="signup.php "style = "color:black">Sign Up</a></li>
                            <li><a href="shoppingcart.php"style = "color:black"><img src="images/trolly-icon.png"></a></li>
