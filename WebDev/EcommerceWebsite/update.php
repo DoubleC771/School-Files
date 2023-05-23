@@ -17,10 +17,9 @@ if(isset($_POST['submit'])) {				// if submit button is pressed then
 		$address = $_POST['address'];
 		$city = $_POST['city'];
     	$username = $_POST['username'];
-    	$password = $_POST['password'];
     	$usertype = $_POST['usertype'];
 		$image = $_POST['Image'];
-		$sql = "UPDATE `logintable` SET `CustomerID`='$id',`firstname`='$firstname',`lastname`='$lastname',`address`='$address',`city`='$city',`username`='$username',`password`='$password',`usertype`='$usertype' ,`Image`='$image' WHERE `CustomerID` = '$id'";
+		$sql = "UPDATE `logintable` SET `CustomerID`='$id',`firstname`='$firstname',`lastname`='$lastname',`address`='$address',`city`='$city',`username`='$username',`usertype`='$usertype' ,`Image`='$image' WHERE `CustomerID` = '$id'";
 		if (mysqli_query($conn, $sql)) {
 			header('location: myaccount.php');
 		} else {
@@ -96,11 +95,6 @@ if(isset($_POST['submit'])) {				// if submit button is pressed then
 						<tr><th><i class="person-fill"></i> Username</th>
 							<td>
 								<input type="text" class="form-control" name="username" placeholder="Username"value = "<?=$user['username']?>">
-							</td>
-						</tr>
-						<tr><th><i class="person-fill"></i> Password</th>
-							<td>
-								<input type="password" class="form-control" name="password" placeholder="Password"value = "<?=$user['password']?>">
 							</td>
 						</tr>
 					</table>

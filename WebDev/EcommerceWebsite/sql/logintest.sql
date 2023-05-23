@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 19, 2023 at 07:30 PM
+-- Generation Time: May 23, 2023 at 02:28 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -63,6 +63,13 @@ CREATE TABLE `cart` (
   `Quantity` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `cart`
+--
+
+INSERT INTO `cart` (`OrderID`, `BikeName`, `Price`, `Image`, `Quantity`) VALUES
+(36, 'Canyon Torque CF 8', ' 243360', 'bike6.png', 500);
+
 -- --------------------------------------------------------
 
 --
@@ -76,7 +83,7 @@ CREATE TABLE `logintable` (
   `address` varchar(50) NOT NULL,
   `city` varchar(50) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(255) NOT NULL,
   `UserType` int(255) NOT NULL,
   `Image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -86,8 +93,32 @@ CREATE TABLE `logintable` (
 --
 
 INSERT INTO `logintable` (`CustomerID`, `firstname`, `lastname`, `address`, `city`, `username`, `password`, `UserType`, `Image`) VALUES
-(2, 'dan', 'vil', 'villa angela', 'Bacolod City', 'drev', '1234', 1, ''),
-(5, 'Edzie Mari', 'Navarra', 'Blk3', 'Bacolod', 'deez', 'deez', 0, '');
+(3, 'deez', 'nutty', 'idk which', 'city', 'deez', '$2y$10$awVaHFXB/HWgmyaT.LlVyu4j2Yx7R9BNmjIEKMtrFx/QhWJLammX6', 1, ''),
+(5, 'mama', 'mama', 'adress', 'city', 'mama', '$2y$10$7YmkDkmNqczME.Ab6OVB9eacARDD6erG62k0woelzdCMezSgppxo6', 1, '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `salesreport`
+--
+
+CREATE TABLE `salesreport` (
+  `SalesID` int(11) NOT NULL,
+  `BikeName` varchar(50) NOT NULL,
+  `Price` longtext NOT NULL,
+  `Quantity` int(11) NOT NULL,
+  `Image` varchar(50) NOT NULL,
+  `date` varchar(50) NOT NULL,
+  `time` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `salesreport`
+--
+
+INSERT INTO `salesreport` (`SalesID`, `BikeName`, `Price`, `Quantity`, `Image`, `date`, `time`) VALUES
+(4, 'Canyon Torque CF 8', ' 243360', 1000, 'bike6.png', 'Tue May 23 2023', '1:16:15'),
+(5, 'Canyon Torque CF 8', ' 243360', 500, 'bike6.png', 'Tue May 23 2023', '1:17:32');
 
 --
 -- Indexes for dumped tables
@@ -112,6 +143,12 @@ ALTER TABLE `logintable`
   ADD PRIMARY KEY (`CustomerID`);
 
 --
+-- Indexes for table `salesreport`
+--
+ALTER TABLE `salesreport`
+  ADD PRIMARY KEY (`SalesID`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -125,13 +162,19 @@ ALTER TABLE `bikeorder`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `OrderID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `OrderID` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT for table `logintable`
 --
 ALTER TABLE `logintable`
   MODIFY `CustomerID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `salesreport`
+--
+ALTER TABLE `salesreport`
+  MODIFY `SalesID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -109,9 +109,11 @@ $cart_count = mysqli_num_rows($select_rows);
                   <a href="update.php?updateid=<?php echo $user['CustomerID']?>">
 							<button class="mx-auto m-1 btn-sm btn btn-primary">Edit</button>
 						</a>
+                  <?php if ($user['UserType'] == 1): ?>
 						<a href="delete.php?deleteid=<?php echo $user['CustomerID']?>">
 							<button class="mx-auto m-1 btn-sm btn btn-warning text-white">Delete</button>
 						</a>
+                  <?php endif; ?>
 						<a href="logout.php">
 							<button class="mx-auto m-1 btn-sm btn btn-info text-white">Logout</button>
 						</a>
