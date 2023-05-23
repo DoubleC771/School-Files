@@ -102,7 +102,7 @@ $cart_count = mysqli_num_rows($select_rows);
                <form class="form-inline my-2 my-lg-0">
                   <div class="login_menu">
                      <ul>
-                     <?php if ($user['UserType'] == 1): ?>
+                     <?php if (isset($user) && $user['UserType'] == 1): ?>
                            <li><a href="myaccount.php"style = "color:black"><?= htmlspecialchars($user['firstname'])?></a></li>
                            <li><a href="logout.php" style = "color:black">Logout</a></li>
                            <li><a href="shoppingcart.php"style = "color:black"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
