@@ -27,6 +27,11 @@ if (isset($_POST['salesreport'])) {
 
     if (mysqli_num_rows($select_salesreport) > 0) {
         $result = mysqli_query($conn, $sql);
+        echo '<div class="alert alert-success" role="alert">
+        Thank you for da money, mister <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+      </div>';
      } else {
         $result = mysqli_query($conn, $sql);
         echo '<div class="alert alert-success" role="alert">

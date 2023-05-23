@@ -102,8 +102,8 @@ if(isset($_POST['submit'])) {				// if submit button is pressed then
       <?php if ($user['UserType'] == 1): ?> <!-- displays the following html elements if the user is an admin. If not, it would not display dis shet-->
 		<select name="usertype" class="form-select form-select mb-3" aria-label=".form-select-lg example">
 								  <option value="">--Select Usertype--</option>	
-								  <option value="0">Admin</option>
-								  <option value="1">User</option>
+								  <option value="1">Admin</option>
+								  <option value="0">User</option>
 								</select>
 								<div><small class="js-error js-error-gender text-danger"></small></div>
   	<?php else: ?>
