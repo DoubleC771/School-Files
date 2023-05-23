@@ -40,59 +40,9 @@ $cart_count = mysqli_num_rows($select_rows);
    </head>
    <body>
       <!-- header of website -->
-      <div class="header_section header_bg">
-         <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a href="index.php" class="logo"><img src="images/logo2.png"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent" style = "color:black">
-               <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
-                     <a class="nav-link" href="index.php">Home</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="about.php">About</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="cycle.php">Our Cycle</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link" href="contact.php">Contact Us</a>
-                  </li>
-               </ul>
-               <form class="form-inline my-2 my-lg-0">
-                  <div class="login_menu">
-                     <ul>
-                        <!-- refer to about.php on why dis sht won't work -->
-                     <?php if (isset($user) && $user['UserType'] == 1): ?>
-                           <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
-                           <li><a href="logout.php">Logout</a></li>
-                           <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
-                           <li><a href="#"><img src="images/search-icon.png"></a></li>
-                           <li><a href="display.php">Admin</a></li>
-                           <li><a href="sales.php">Sales Report</a></li>
-                     <?php elseif (isset($norm) && $norm): ?>
-                           <li><a href="myaccount.php"><?= htmlspecialchars($user['firstname'])?></a></li>
-                           <li><a href="logout.php">Logout</a></li>
-                           <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"><span class="position-absolute top-50 start-55 translate-middle badge rounded-pill bg-danger"><?php echo $cart_count?></span></a></li>
-                           <li><a href="#"><img src="images/search-icon.png"></a></li>
-                     <?php elseif (!isset($user)): session_unset()?>
-                           <li><a href="login.php">Login</a></li>
-                           <li><a href="signup.php ">Sign Up</a></li>
-                           <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"></a></li>
-                           <li><a href="#"><img src="images/search-icon-black.png"></a></li>
-                     <?php endif; ?>
-                     <!-- end of checking usertype -->
-                        </ul>
-                  </div>
-                  <div></div>
-               </form>
-            </div>
-            <div id="main">
-               <span style="font-size:36px;cursor:pointer; color: #fff" onclick="openNav()"><img src="images/toggle-icon.png" style="height: 30px;"></span>
-            </div>
-         </nav>
+      <?php
+include('header.php');
+?>
          <!-- end of header -->
           <!-- banner section start -->
           <div class="banner_section layout_padding">
@@ -234,34 +184,9 @@ $cart_count = mysqli_num_rows($select_rows);
    </div>
    <!-- client section end -->
       <!-- footer section start -->
-      <div class="footer_section layout_padding">
-         <div class="container-fluid">
-            <div class="row">
-               <div class="col-lg-8 col-sm-12 padding_0">
-                  <div class="map_main">
-                     <div class="map-responsive">
-                       <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&amp;q=Eiffel+Tower+Paris+France" width="600" height="400" frameborder="0" style="border:0; width: 100%;" allowfullscreen=""></iframe>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-lg-4 col-sm-12">
-                  <div class="call_text"><a href="#"><img src="images/map-icon.png"><span class="padding_left_0">Page when looking at its layou</span></a></div>
-                  <div class="call_text"><a href="#"><img src="images/call-icon.png"><span class="padding_left_0">Call Now  +01 123467890</span></a></div>
-                  <div class="call_text"><a href="#"><img src="images/mail-icon.png"><span class="padding_left_0">demo@gmail.com</span></a></div>
-                  <div class="social_icon">
-                     <ul>
-                        <li><a href="#"><img src="images/fb-icon1.png"></a></li>
-                        <li><a href="#"><img src="images/twitter-icon.png"></a></li>
-                        <li><a href="#"><img src="images/linkedin-icon.png"></a></li>
-                        <li><a href="#"><img src="images/instagram-icon.png"></a></li>
-                     </ul>
-                  </div>
-                  <input type="text" class="email_text" placeholder="Enter Your Email" name="Enter Your Email">
-                  <div class="subscribe_bt"><a href="#">Subscribe</a></div>
-               </div>
-            </div>
-         </div>
-      </div>
+      <?php
+include('footer.php');
+?>
       <!-- footer section end -->
       <!-- copyright section start -->
       <div class="copyright_section">
