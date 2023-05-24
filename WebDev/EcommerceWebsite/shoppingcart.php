@@ -12,7 +12,7 @@ if (isset($_SESSION["user_id"])) {
 if (isset($_POST['update_update_btn'])) { //update button is used to update the quantity of the item 
     $update_quantity = $_POST['update_quantity']; //yoinked from hidden input types (same principle as the one present in cycle.php but instead of inserting variables into the database, we update the contents instead) yoink to store into variables, use said variables to update the contents of the database 
     $update_id = $_POST['update_quantity_id']; //yoinked too from hidden input types
-    $updatequery = mysqli_query($conn, "UPDATE `cart` SET `Quantity` = '$update_quantity' WHERE `OrderID` = '$update_id'");
+    $updatequery = mysqli_query($conn, "UPDATE `cart` SET `Quantity` = '$update_quantity' WHERE `CartID` = '$update_id'");
     if ($updatequery) {
         header('location:shoppingcart.php');
     }
@@ -21,7 +21,7 @@ if (isset($_POST['update_update_btn'])) { //update button is used to update the 
 if (isset($_GET['removeid'])) { //similar to the ones present in the admin panel (refer to display.php)
     $id = $_GET['removeid'];
 
-    $sql = "DELETE FROM `cart` where `OrderID`=$id";
+    $sql = "DELETE FROM `cart` where `CartID`=$id";
     $result = mysqli_query($conn, $sql);
 
     if ($result) {
@@ -158,22 +158,27 @@ $cart_count = mysqli_num_rows($select_rows);
                     <td> 
                         <form action = "" method = "post">
                            
-                            <input type = "hidden" name = "update_quantity_id" value = "<?php echo $result['OrderID']; ?> ">
+                            <input type = "hidden" name = "update_quantity_id" value = "<?php echo $result['CartID']; ?> ">
                             <input type = "number" class = "form-control" id = "typeNumber" name = "update_quantity" min = "1" value = "<?php echo $result['Quantity']; ?>">
                             <input type = "submit" value = "Update" name = "update_update_btn" class = "btn btn-secondary">
 
-                            <?php if ($result['Quantity'] > 50): ?>
+                            <?php
+                            $orderid = $result['OrderID'];
+                            $limit = "SELECT Stocks from bikeorder WHERE OrderID = $orderid";
+                            $resultlimit = $conn->query($limit);
+                            $stocklimit = $resultlimit->fetch_assoc();
+                            if ($result['Quantity'] > $stocklimit['Stocks']): ?>
                               <div class="alert alert-danger" role="alert">
-  Quantity Selected is over the Stock available!
-</div>
-<?php else: ?>
-<?php endif; ?>
+                                Quantity Selected is over the Stock available!
+                                </div>
+                                <?php else: ?>
+                                <?php endif; ?>
 
                             <!-- we use hidden input types to get the values from another database. After which, we will be able to store those into variables to store these variables to a diff database -->
                         </form>
                     </td>
                     <td>₱<?php echo number_format($subtotal = (int)$result['Price'] * (int)$result['Quantity']); ?></td> <!--needs int here as we are adding here-->
-                    <td><a href = 'shoppingcart.php?removeid=<?php echo $result['OrderID']; ?>' onclick ="return confirm('Remove item from cart?')" class = "btn btn-warning">Remove</a></td>
+                    <td><a href = 'shoppingcart.php?removeid=<?php echo $result['CartID']; ?>' onclick ="return confirm('Remove item from cart?')" class = "btn btn-warning">Remove</a></td>
                     <!--get removeid to specify which item in the cart should be removed-->
                 </tr>
 
@@ -197,7 +202,11 @@ $cart_count = mysqli_num_rows($select_rows);
             </tbody>
         </table>
         <div class="d-grid gap-2 col-6 mx-auto">
-        <a href = "checkout.php" class = "btn btn-outline-primary" style ="margin-bottom: 5rem">Checkout</a> <!-- checkout is not working yeeeeeet -->
+            <?php if (empty($stocklimit['Stocks'])): ?>
+                <a href="javascript:void(0)" onclick="alert('Not enough stock!')" class = "btn btn-outline-primary" style ="margin-bottom: 5rem">Checkout</a>
+            <?php else: ?>
+                <a href = "checkout.php" class = "btn btn-outline-primary" style ="margin-bottom: 5rem">Checkout</a> <!-- checkout is not working yeeeeeet -->
+            <?php endif; ?>
       </div>
     </div>
     <?php
