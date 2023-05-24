@@ -23,10 +23,13 @@ if (isset($_POST['salesreport'])) {
     $select_salesreport = mysqli_query($conn, "SELECT * FROM `salesreport` WHERE `BikeName` = '$product_name'");
 
     $sql = "INSERT INTO salesreport (BikeName, Price, Image, Quantity, date, time) VALUES ('$product_name', '$product_price', '$product_image', '$product_quantity', '$date', '$time')";
+
+    $update_stocks = "UPDATE bikeorder SET Stocks = Stocks - $product_quantity";
     
 
     if (mysqli_num_rows($select_salesreport) > 0) {
         $result = mysqli_query($conn, $sql);
+        $updatestocks = mysqli_query($conn, $update_stocks);
         echo '<div class="alert alert-success" role="alert">
         Thank you for da money, mister <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -34,6 +37,7 @@ if (isset($_POST['salesreport'])) {
       </div>';
      } else {
         $result = mysqli_query($conn, $sql);
+        $updatestocks = mysqli_query($conn, $update_stocks);
         echo '<div class="alert alert-success" role="alert">
         Thank you for da money, mister <button type="button" class="close" data-dismiss="alert" aria-label="Close">
         <span aria-hidden="true">&times;</span>
