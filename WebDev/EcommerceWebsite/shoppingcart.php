@@ -162,7 +162,8 @@ $cart_count = mysqli_num_rows($select_rows);
                             <input type = "number" class = "form-control" id = "typeNumber" name = "update_quantity" min = "1" value = "<?php echo $result['Quantity']; ?>">
                             <input type = "submit" value = "Update" name = "update_update_btn" class = "btn btn-secondary">
 
-                            <?php if ($result['Quantity'] > 50): ?>
+                            <?php
+                            if ($result['Quantity'] > 50): ?>
                               <div class="alert alert-danger" role="alert">
   Quantity Selected is over the Stock available!
 </div>
