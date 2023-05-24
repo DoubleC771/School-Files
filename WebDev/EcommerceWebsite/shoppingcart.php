@@ -151,15 +151,24 @@ $cart_count = mysqli_num_rows($select_rows);
                 ?>
 
                 <tr>
-                    <td> <img src = "ShoppingImages/<?php echo $result['Image']; ?>" </td>
+                    <td> <img src = "ShoppingImages/<?php echo $result['Image']; ?>"> </td>
                     <td> <?php echo $result['BikeName']; ?> </td>
                     <!-- we use number format here to display the numbers with commas so instead of displaying '14000' it would display '14,000' instead -->
                     <td> ₱<?php echo number_format($result['Price']); ?> </td>
                     <td> 
                         <form action = "" method = "post">
+                           
                             <input type = "hidden" name = "update_quantity_id" value = "<?php echo $result['OrderID']; ?> ">
                             <input type = "number" class = "form-control" id = "typeNumber" name = "update_quantity" min = "1" value = "<?php echo $result['Quantity']; ?>">
                             <input type = "submit" value = "Update" name = "update_update_btn" class = "btn btn-secondary">
+
+                            <?php if ($result['Quantity'] > 50): ?>
+                              <div class="alert alert-danger" role="alert">
+  Quantity Selected is over the Stock available!
+</div>
+<?php else: ?>
+<?php endif; ?>
+
                             <!-- we use hidden input types to get the values from another database. After which, we will be able to store those into variables to store these variables to a diff database -->
                         </form>
                     </td>
