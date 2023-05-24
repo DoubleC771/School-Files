@@ -191,7 +191,7 @@ include('footer.php');
       <!-- copyright section start -->
       <div class="copyright_section">
          <div class="container">
-            <p class="copyright_text">Copyright 2019 All Right Reserved By.<a href="https://html.design"> Free  html Templates</p>
+            <p class="copyright_text">Copyright 2023 All Right Reserved By.<a href="https://www.facebook.com/Ph4se0ne"> INV Studios</p>
          </div>
       </div>
       <!-- copyright section end -->    
