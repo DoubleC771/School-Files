@@ -135,6 +135,7 @@ $cart_count = mysqli_num_rows($select_rows);
         <table class="table table-hover">
             <thead class="table-success">
                 <th scope = "col"> SalesID </th>
+                <th scope = "col"> CustomerID </th>
                 <th scope = "col"> Image </th>
                 <th scope = "col"> Bike Name </th>
                 <th scope = "col"> Price </th>
@@ -154,6 +155,7 @@ $cart_count = mysqli_num_rows($select_rows);
 
                 <tr>
                     <td> <?php echo $result['SalesID']; ?> </td>
+                    <td> <?php echo $result['CustomerName']; ?> </td>
                     <td> <img src = "ShoppingImages/<?php echo $result['Image']; ?>" </td>
                     <td> <?php echo $result['BikeName']; ?> </td>
                     <!-- we use number format here to display the numbers with commas so instead of displaying '14000' it would display '14,000' instead -->

@@ -16,13 +16,14 @@ if (isset($_POST['add_to_cart'])) {       // if user presses the 'add to cart' b
    $product_price = $_POST['product_price'];
    $product_image = $_POST['product_image'];
    $product_id = $_POST['product_id'];
+   $customername = $_POST['customername'];
    $product_quantity = 1;
 
    // connect to the cart database and sync BikeName column of cart to the ones put into the cart
    $select_cart = mysqli_query($conn, "SELECT * FROM `cart` WHERE `BikeName` = '$product_name'");
 
    // put the values above into the cart table
-   $sql = "INSERT INTO cart (BikeName, Price, Image, Quantity, OrderID) VALUES ('$product_name', '$product_price', '$product_image', '$product_quantity', '$product_id')";
+   $sql = "INSERT INTO cart (BikeName, Price, Image, Quantity, OrderID, CustomerName) VALUES ('$product_name', '$product_price', '$product_image', '$product_quantity', '$product_id', '$customername')";
 
    // if there is more than one instance of a specific item, it would display that there is a duplicate of the item.
    if (mysqli_num_rows($select_cart) > 0) {
@@ -226,6 +227,7 @@ include('header.php');
                                  <input type="hidden" name = "product_price" value = "<?php echo $row["Price"]; ?>">
                                  <input type="hidden" name = "product_image" value = "<?php echo $row["Image"]; ?>">
                                  <input type="hidden" name = "product_id" value = "<?php echo $row["OrderID"]; ?>">
+                                 <input type="hidden" name = "customername" value = "<?php echo $user["firstname"]; ?>">
                                  <input type ="submit" class = "btn btn-primary" value = "Add to Cart" name = "add_to_cart">
                                  <!-- we use hidden input types to get the values from another database. After which, we will be able to store those into variables to store these variables to a diff database -->
                               </div>

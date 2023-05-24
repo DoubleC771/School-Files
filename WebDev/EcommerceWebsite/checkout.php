@@ -25,11 +25,12 @@ if (isset($_POST['salesreport'])) {
         $product_price = $result['Price'];
         $product_image = $result['Image'];
         $product_quantity = $result['Quantity'];
+        $customername = $result['CustomerName'];
         $date = date('Y-m-d');
         $time = date('H:i:s');
         
-        $sql = "INSERT INTO salesreport (BikeName, Price, Image, Quantity, date, time) 
-                VALUES ('$product_name', '$product_price', '$product_image', '$product_quantity', '$date', '$time')";
+        $sql = "INSERT INTO salesreport (BikeName, Price, Image, Quantity, date, time, CustomerName) 
+                VALUES ('$product_name', '$product_price', '$product_image', '$product_quantity', '$date', '$time', '$customername')";
         
         mysqli_query($conn, $sql);
     }
