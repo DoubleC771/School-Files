@@ -38,7 +38,7 @@
                      <?php elseif (!isset($user)): ?>
                            <li><a href="login.php">Login</a></li>
                            <li><a href="signup.php ">Sign Up</a></li>
-                           <li><a href="shoppingcart.php"><img src="images/trolly-icon.png"></a></li>
+                           <li class="alert-li"><a href="javascript:void(0);" onclick="alert('Please login to access the shopping cart.');"><img src="images/trolly-icon.png"></a></li>
                            <li><a href="#"><img src="images/search-icon-black.png"></a></li>
                      <?php endif; ?>
                      </ul>
