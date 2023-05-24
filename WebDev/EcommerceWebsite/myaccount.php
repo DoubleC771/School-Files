@@ -104,7 +104,11 @@ $cart_count = mysqli_num_rows($select_rows);
    <div class="row col-lg-8 border rounded mx-auto mt-5 p-2 shadow-lg">
 			<div class="col-md-4 text-center">
             <!-- get_image is a function from db_connection. It is called to verify or get the user's image. If found, it would display the image. If not, it refers to the 'empty', 'blank' or the default image -->
-            <img src="<?=get_image($user['Image'])?>" class="img-fluid rounded" style="width: 180px;height:180px;object-fit: cover;">
+            <?php if (empty($user['Image'])): ?>
+            <img src="images\no-image.jpg" class="img-fluid rounded" style="width: 180px;height:180px;object-fit: cover;">
+            <?php else: ?>
+               <img src="images\<?php echo $user['Image']?>" class="img-fluid rounded" style="width: 180px;height:180px;object-fit: cover;">
+            <?php endif;?>
          <div>
                   <a href="update.php?updateid=<?php echo $user['CustomerID']?>">
 							<button class="mx-auto m-1 btn-sm btn btn-primary">Edit</button>

@@ -3,7 +3,7 @@
     if (!$conn) {
         die("Connection failed: " . mysqli_connect_error());
     }
-    function get_image($path = ''):string //get the image of a user (haven't fully implemented yet)
+    function get_image($path = '\images'):string //get the image of a user (haven't fully implemented yet)
     {
         if(file_exists($path))
         {

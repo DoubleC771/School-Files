@@ -50,8 +50,8 @@ if(isset($_POST['submit'])) {				// if submit button is pressed then
 	<form method="post" action="">
 	<div class="row col-lg-8 border rounded mx-auto mt-5 p-2 shadow-lg">
 			<div class="col-md-4 text-center">
-				<img src="<?=get_image($row['image'])?>" class="js-image img-fluid rounded" style="width: 180px;height:180px;object-fit: cover;">
-				<div>
+			<img src="images\no-image.jpg" class="img-fluid rounded" style="width: 180px;height:180px;object-fit: cover;">
+            <div>
 					<div class="mb-3">
 					  <label for="formFile" class="form-label">Click below to select an image</label>
 					  <!-- does not work yet -->
