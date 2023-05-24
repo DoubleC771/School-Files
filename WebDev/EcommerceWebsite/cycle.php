@@ -139,7 +139,7 @@ include('header.php');
       <!-- cycle section start -->
    <div class="cycle_section layout_padding">
       <div class="container">
-         <h1 class="cycle_taital">Our cycle</h1>
+         <h1 class="cycle_taital">Our Cycle</h1>
          <p class="cycle_text">Upgrade your ride with our premium bikes!<br> Crafted with the best materials and advanced tech, they're durable, reliable, and comfortable.</p>
          <div class="cycle_section_2 layout_padding">
             <div class="row">
