@@ -17,6 +17,7 @@ if (isset($_POST['salesreport'])) {
     $product_price = $_POST['product_price'];
     $product_image = $_POST['product_image'];
     $product_quantity = $_POST['product_quantity'];
+    $product_id = $_POST['product_id'];
     $date = $_POST['date'];
     $time = $_POST['time'];
 
@@ -24,8 +25,9 @@ if (isset($_POST['salesreport'])) {
 
     $sql = "INSERT INTO salesreport (BikeName, Price, Image, Quantity, date, time) VALUES ('$product_name', '$product_price', '$product_image', '$product_quantity', '$date', '$time')";
 
-    $update_stocks = "UPDATE bikeorder SET Stocks = Stocks - $product_quantity";
+    $update_stocks = "UPDATE bikeorder SET Stocks = Stocks - $product_quantity WHERE OrderID = $product_id";
     
+    $erase = "Truncate TABLE cart";
 
     if (mysqli_num_rows($select_salesreport) > 0) {
         $result = mysqli_query($conn, $sql);
@@ -35,6 +37,7 @@ if (isset($_POST['salesreport'])) {
         <span aria-hidden="true">&times;</span>
       </button>
       </div>';
+        $yeetus = mysqli_query($conn, $erase);
      } else {
         $result = mysqli_query($conn, $sql);
         $updatestocks = mysqli_query($conn, $update_stocks);
@@ -43,6 +46,7 @@ if (isset($_POST['salesreport'])) {
         <span aria-hidden="true">&times;</span>
       </button>
       </div>';
+        $yeetus = mysqli_query($conn, $erase);
      }
 }
 $select_rows = mysqli_query($conn, "SELECT * FROM `cart`") or die ("Query Failed");
@@ -87,15 +91,16 @@ $cart_count = mysqli_num_rows($select_rows);
                     <input type="hidden" name = "product_price" value = "<?php echo $result["Price"]; ?>">
                     <input type="hidden" name = "product_image" value = "<?php echo $result["Image"]; ?>">
                     <input type="hidden" name = "product_quantity" value = "<?php echo $result["Quantity"]; ?>">
+                    <input type="hidden" name = "product_id" value = "<?php echo $result["OrderID"]; ?>">
                     <input type="hidden" id="date" name="date" value="CurrentTime"> 
-                    <input type="hidden" id="time" name="time" value="CurrentDate">
-                    <input type ="submit" class = "btn btn-primary" value = "Agree to pay ₱<?php echo number_format($total)?>" name = "salesreport">
-                    <td><a href = "cycle.php" class = "btn btn-info"> Continue Shopping? </a></td> 
-                </form>
+                    <input type="hidden" id="time" name="time" value="CurrentDate"> 
                     <!-- ignore the hidden input types, it is used for decreasing stocks but it is incomplete -->
+                    <input type ="submit" class = "btn btn-primary" value = "Agree to pay ₱<?php echo number_format($total)?>" name = "salesreport">
+                    </form>
                 <?php 
                     };
                 }  ?>
+                <td><a href = "cycle.php" class = "btn btn-info"> Continue Shopping? </a></td>
                     <hr>
     </div>
 </div>
