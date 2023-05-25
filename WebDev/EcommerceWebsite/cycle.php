@@ -52,6 +52,7 @@ $cart_count = mysqli_num_rows($select_rows);
    <head>
       <!-- style shits -->
       <meta charset="utf-8">
+      <link rel="icon" type="image/png" href="images/logo2.png">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="width=device-width, initial-scale=1">
